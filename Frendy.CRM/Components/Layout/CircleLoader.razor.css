@@ -1,0 +1,14 @@
+﻿.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: var(--block-color);
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+    z-index: 9999;
+    backdrop-filter: blur(2rem);
+    opacity: 50;
+    background-size: cover;
+    overflow-y: hidden;
+}

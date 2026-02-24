@@ -1,0 +1,11 @@
+﻿@using Frendy.CRM.Components.Buttons
+@using Frendy.CRM.Shared.Enums
+@inherits CustomComponentBase
+
+<div class="nav-content @(IsCollapsed ? "collapsed" : "")">
+    <NavButton Text="@LocalizationService.GetString("NAV_AUDIT_LOG_TITLE")" Href="/" Icon="Icons.Audit" />
+    <NavButton Text="@LocalizationService.GetString("NAV_USERS_TITLE")" Href="/users" Icon="Icons.Users" />
+    <NavButton Text="@LocalizationService.GetString("NAV_MANAGING_STAFF_TITLE")" Href="/staff" Icon="Icons.Staff" />
+    <NavButton Text="@LocalizationService.GetString("NAV_USER_REQUESTS_TITLE")" Href="/requests" Icon="Icons.Request" />
+    <NavButton Text="@LocalizationService.GetString("NAV_METRICS_TITLE")" Href="/metrics" Icon="Icons.Dashboard" />
+</div>

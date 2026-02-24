@@ -1,0 +1,27 @@
+﻿button {
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+
+    font: inherit;
+    color: inherit;
+
+    line-height: 1;
+    cursor: pointer;
+}
+
+.iconed-button {
+    padding: 0.625rem;
+    border-radius: 0.5rem;
+    color: var(--white-color);
+    transition: background .2s ease, box-shadow .2s ease, transform .05s ease;
+}
+
+.iconed-button:hover {
+    background: var(--hover-color);
+}
+
+.iconed-button:active {
+    background: var(--active-color);
+}

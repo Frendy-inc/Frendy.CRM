@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+            
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="NAV_AUDIT_LOG_TITLE" xml:space="preserve">
+        <value>Audit log</value>
+    </data>
+    <data name="NAV_USERS_TITLE" xml:space="preserve">
+        <value>Users</value>
+    </data>
+    <data name="NAV_MANAGING_STAFF_TITLE" xml:space="preserve">
+        <value>Managing staff</value>
+    </data>
+    <data name="NAV_USER_REQUESTS_TITLE" xml:space="preserve">
+        <value>User requests</value>
+    </data>
+    <data name="NAV_METRICS_TITLE" xml:space="preserve">
+        <value>Metrics</value>
+    </data>
+    <data name="HEADER_USER_ROLE" xml:space="preserve">
+        <value>User</value>
+    </data>
+    <data name="HEADER_SUPPORT_ROLE" xml:space="preserve">
+        <value>Support</value>
+    </data>
+    <data name="HEADER_MODER_ROLE" xml:space="preserve">
+        <value>Moderator</value>
+    </data>
+    <data name="HEADER_ADMIN_ROLE" xml:space="preserve">
+        <value>Administrator</value>
+    </data>
+    <data name="USER_MENU_GO_TO_PROFILE_TITLE" xml:space="preserve">
+        <value>Go to Profile</value>
+    </data>
+    <data name="USER_MENU_LANG_TITLE" xml:space="preserve">
+        <value>Language</value>
+    </data>
+    <data name="USER_MENU_THEME_TITLE" xml:space="preserve">
+        <value>Theme</value>
+    </data>
+    <data name="TABLE_REGISTRATION_ACTION" xml:space="preserve">
+        <value>Registration</value>
+    </data>
+    <data name="TABLE_AUTHORIZATION_ACTION" xml:space="preserve">
+        <value>Authorization</value>
+    </data>
+    <data name="TABLE_BLOCKING_ACTION" xml:space="preserve">
+        <value>Blocking the user</value>
+    </data>
+    <data name="TABLE_UNBLOCKING_ACTION" xml:space="preserve">
+        <value>Unblocking the user</value>
+    </data>
+    <data name="TABLE_PASS_CHANGE_ACTION" xml:space="preserve">
+        <value>Password change</value>
+    </data>
+    <data name="TABLE_PROFILE_UPDATE_ACTION" xml:space="preserve">
+        <value>Profile update</value>
+    </data>
+    <data name="TABLE_GET_USER_LIST_ACTION" xml:space="preserve">
+        <value>Getting user list</value>
+    </data>
+    <data name="TABLE_CHANGE_ROLE_ACTION" xml:space="preserve">
+        <value>Changing the user's role</value>
+    </data>
+    <data name="TABLE_ADD_NEW_ACTION" xml:space="preserve">
+        <value>Adding new action</value>
+    </data>
+    <data name="TABLE_UPDATE_ACTION" xml:space="preserve">
+        <value>Action update</value>
+    </data>
+    <data name="TABLE_PAGINATION_PREV" xml:space="preserve">
+        <value>Previous</value>
+    </data>
+    <data name="TABLE_PAGINATION_NEXT" xml:space="preserve">
+        <value>Next</value>
+    </data>
+    <data name="TABLE_NO_DATA" xml:space="preserve">
+        <value>Unfortunately, the table is empty</value>
+    </data>
+    <data name="TABLE_ID_TITLE" xml:space="preserve">
+        <value>Id</value>
+    </data>
+    <data name="TABLE_NAME_TITLE" xml:space="preserve">
+        <value>Name</value>
+    </data>
+    <data name="TABLE_TARGET_TITLE" xml:space="preserve">
+        <value>Target</value>
+    </data>
+    <data name="TABLE_ACTION_TIME_TITLE" xml:space="preserve">
+        <value>Action time</value>
+    </data>
+    <data name="TABLE_ACTION_TITLE" xml:space="preserve">
+        <value>Action</value>
+    </data>
+    <data name="TEXT_INPUT_SEARCH" xml:space="preserve">
+        <value>Search...</value>
+    </data>
+    <data name="AUDIT_MODAL_TITLE" xml:space="preserve">
+        <value>Action Information</value>
+    </data>
+    <data name="AUDIT_MODAL_ID" xml:space="preserve">
+        <value>Identifier</value>
+    </data>
+    <data name="AUDIT_MODAL_EXECUTOR" xml:space="preserve">
+        <value>Executor</value>
+    </data>
+    <data name="AUDIT_MODAL_ACTION_DATE" xml:space="preserve">
+        <value>Action date</value>
+    </data>
+    <data name="AUDIT_MODAL_TARGET" xml:space="preserve">
+        <value>Target</value>
+    </data>
+    <data name="AUDIT_MODAL_ACTION_TYPE" xml:space="preserve">
+        <value>Action type</value>
+    </data>
+    <data name="NOTIFY_CLIPBOARD" xml:space="preserve">
+        <value>Copied to the clipboard!</value>
+    </data>
+</root>

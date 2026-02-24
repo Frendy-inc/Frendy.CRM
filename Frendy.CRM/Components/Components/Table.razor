@@ -1,0 +1,176 @@
+﻿@using Frendy.CRM.Components.Buttons
+@using Frendy.CRM.Shared.Enums
+@inherits CustomComponentBase
+
+<div class="table-content">
+    <div class="table-options">
+        <div class="search-option">
+            <TextInput OnChange="OnSearchValueChangedAsync"/>
+        </div>
+
+        <ToggleButton OptionLeft="Icons.RowView" OptionRight="Icons.GridView" OnToggle="OnToggleViewAsync"/>
+    </div>
+    
+    @if (_isRowView)
+    {
+        <div class="table-scroll-wrapper">
+            <table>
+                <thead>
+                    <tr class="head-content">
+                        <th scope="col"></th>
+                        @foreach (var title in HeadTitles)
+                        {
+                            <th class="head-item" scope="col">
+                                <span class="head-title">@title</span>
+                            </th>
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var (bodyLine, index) in Body.Select((item, index)
+                                  => (item, index + (CurrentPage * PageSize) - PageSize)))
+                    {
+                        <tr @onclick="@(() => NavigateToAudit(Guid.Parse(bodyLine.Keys.First()[0])))" 
+                            class="body-content @(index % 2 == 0 ? "light" : "dark")">
+                            <th class="body-item" scope="row"><span>@(index + 1)</span></th>
+                            @foreach (var item in bodyLine)
+                            {
+                                switch (item.Value)
+                                {
+                                    case TableItemType.Text:
+                                        <td class="body-item">
+                                            <span>@item.Key[0]</span>
+                                        </td>
+                                        break;
+                                    case TableItemType.WithSubText:
+                                        <td class="body-item multi-line">
+                                            <span>@item.Key[0]</span>
+                                            <span class="sub-item">@item.Key[1]</span>
+                                        </td>
+                                        break;
+                                    case TableItemType.Status:
+                                        <td class="body-item">
+                                            <span class="status @item.Key[1] bg">@item.Key[0]</span>
+                                        </td>
+                                        break;
+                                }
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <div class="grid-view">
+            @foreach (var bodyLine in Body)
+            {
+                <div class="grid-content" @onclick="@(() => NavigateToAudit(Guid.Parse(bodyLine.Keys.First()[0])))">
+                    @foreach (var (item, itemIndex) in bodyLine.Select((item, itemIndex) => (item, itemIndex)))
+                    {
+                        if (itemIndex < 1) continue;
+                        
+                        switch (item.Value)
+                        {
+                            case TableItemType.Text:
+                                <div class="grid-item">
+                                    <span>@HeadTitles[itemIndex]:</span>
+                                    <span>@item.Key[0]</span>
+                                </div>
+                                break;
+                            case TableItemType.WithSubText:
+                                <div class="grid-item">
+                                    <span>@HeadTitles[itemIndex]:</span>
+                                    <span>@item.Key[0]</span>
+                                    <span class="sub-item">@item.Key[1]</span>
+                                </div>
+                                break;
+                            case TableItemType.Status:
+                                <div class="grid-item">
+                                    <span class="status @item.Key[1] bg" style="
+                                        width: -webkit-fill-available;
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;">@item.Key[0]
+                                    </span>
+                                </div>
+                                break;
+                        }
+                    }
+                </div>
+            }
+        </div>
+    }
+    @if (TotalCount > PageSize)
+    {
+        <div class="pagination">
+            <TextButton
+                Text="@LocalizationService.GetString("TABLE_PAGINATION_PREV")"
+                Style="border-radius: 0.5rem;"
+                IsDisabled="@(CurrentPage == 1)"
+                OnClick="@(() => HandleClickAsync((CurrentPage - 2) * PageSize))"/>
+
+            @{
+                var displayPages = new List<int>();
+
+                displayPages.Add(1);
+
+                if (CurrentPage > 4)
+                {
+                    displayPages.Add(-1);
+                }
+
+                var start = Math.Max(2, CurrentPage - 2);
+                var end = Math.Min(PagesCount - 1, CurrentPage + 2);
+
+                for (int i = start; i <= end; i++)
+                {
+                    if (i != 1 && i != PagesCount)
+                    {
+                        displayPages.Add(i);
+                    }
+                }
+
+                if (CurrentPage < PagesCount - 3)
+                {
+                    displayPages.Add(-1);
+                }
+
+                if (PagesCount > 1)
+                {
+                    displayPages.Add(PagesCount);
+                }
+            }
+
+            @foreach (var page in displayPages)
+            {
+                if (page == -1)
+                {
+                    <span class="ellipsis">...</span>
+                }
+                else
+                {
+                    var indexCopy = page;
+                    <TextButton
+                        IsActive="@(CurrentPage == indexCopy)"
+                        Text="@indexCopy.ToString()"
+                        OnClick="@(() => HandleClickAsync((indexCopy - 1) * PageSize))"
+                        Style="border-radius: 0.5rem;"/>
+                }
+            }
+
+            <TextButton
+                Text="@LocalizationService.GetString("TABLE_PAGINATION_NEXT")"
+                Style="border-radius: 0.5rem;"
+                IsDisabled="@(CurrentPage == PagesCount)"
+                OnClick="@(() => HandleClickAsync(CurrentPage * PageSize))"/>
+        </div>
+    }
+    @if (Body.Count == 0)
+    {
+        <div class="no-data">
+            <span>@LocalizationService.GetString("TABLE_NO_DATA")</span>
+        </div>   
+    }
+</div>

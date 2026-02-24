@@ -1,0 +1,24 @@
+﻿@using Frendy.CRM.Components.Buttons
+@using Frendy.CRM.Shared.Enums
+@inherits CustomComponentBase
+
+<div class="user-menu-container @(IsCollapsed ? "collapsed" : "")">
+    <TextButton Icon="res/profile_icon_16.svg" Text="@LocalizationService.GetString("USER_MENU_GO_TO_PROFILE_TITLE")" />
+    <hr class="horizontal"/>
+    <div class="user-name-toggle">
+        <span>@LocalizationService.GetString("USER_MENU_LANG_TITLE"):</span>
+        <ToggleButton 
+            OptionLeft="Icons.Ru" 
+            OptionRight="Icons.En" 
+            IsLeftSelected="@_isRussian" 
+            OnToggle="@ToggleLanguageAsync" />
+    </div>
+    <div class="user-name-toggle">
+        <span>@LocalizationService.GetString("USER_MENU_THEME_TITLE"):</span>
+        <ToggleButton 
+            OptionLeft="Icons.LightTheme" 
+            OptionRight="Icons.DarkTheme" 
+            IsLeftSelected="@_isLightTheme" 
+            OnToggle="@ToggleThemeAsync" />
+    </div>
+</div>

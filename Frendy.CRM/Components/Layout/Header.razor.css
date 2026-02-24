@@ -1,0 +1,71 @@
+﻿.header-content {
+    display: flex;
+    padding: 0.5rem;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--acient-color);
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
+}
+
+.burger-content {
+    width: 15.5rem;
+}
+
+.crm-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.crm-title {
+    color: var(--title-text-color);
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.crm-version {
+    color: var(--unfocus-color);
+    font-size: 0.625rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.user-info-container {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    gap: 1rem;
+    width: 15.5rem;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.user-name {
+    color: var(--title-text-color);
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.user-role {
+    color: var(--unfocus-color);
+    font-size: 0.625rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.user-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}

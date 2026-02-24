@@ -1,0 +1,20 @@
+﻿@using Frendy.CRM.Components.Buttons
+@using Frendy.CRM.Shared.Enums
+
+<div class="drop-down-container">
+    <div class="drop-down-header">
+        <span>@Title</span>
+        <IconButton Icon="Icons.DownArrow" Size="IconSize.Small"></IconButton>
+    </div>
+    <div class="drop-down-items">
+        @if (Content is not null)
+        {
+            @foreach (var item in Content)
+            {
+                <div class="drop-down-item">
+                    <span>@item</span>
+                </div>
+            }
+        }
+    </div>
+</div>

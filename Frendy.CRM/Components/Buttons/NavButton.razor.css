@@ -1,0 +1,50 @@
+﻿.flat-button {
+    display: flex;
+    justify-content: start;
+    transition: background .2s ease, box-shadow .2s ease, transform .05s ease;
+    align-items: center;
+    border-top: 0.125rem solid var(--block-color);
+    border-bottom: 0.125rem solid var(--stroke-color);
+    background: var(--block-color);
+    line-height: normal;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    width: -webkit-fill-available;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 700;
+    background: none;
+
+    &>a {
+        width: -webkit-fill-available;
+        display: flex;
+        flex-direction: row;
+        gap: 2.25rem;
+        justify-content: start;
+        text-decoration: none;
+        padding: 1rem 2rem;
+        
+        &.active {
+            background: var(--active-color);
+        }
+    }
+}
+
+.flat-button:hover {
+    background: var(--hover-color);
+}
+
+.flat-button:active {
+    background: var(--active-color);
+}
+
+.icon-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inherit-color {
+    filter: brightness(0) invert(0);
+    opacity: 0.8;
+}
