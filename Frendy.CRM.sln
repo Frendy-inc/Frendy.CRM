@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frendy.CRM", "Frendy.CRM\Frendy.CRM.csproj", "{592E98A7-F2C6-4388-AE75-46AC28259F00}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frendy.CRM.Resources", "Frendy.CRM.Resources\Frendy.CRM.Resources.csproj", "{B182888F-9335-4C0C-AA33-D0F6B4B86C85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frendy.CRM.Services", "Frendy.CRM.Services\Frendy.CRM.Services.csproj", "{F1F77757-5F3E-43A1-8C6E-1B29574DF268}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{9E7EC4AC-D0DD-49F4-8561-C1A7DEB14588}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frendy.Shared", "Submodules\Frendy.Shared\Frendy.Shared\Frendy.Shared.csproj", "{50BE65E3-98E6-499E-8299-282A149D2771}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frendy.CRM.Shared", "Frendy.CRM.Shared\Frendy.CRM.Shared.csproj", "{4E2D7B0C-D062-4176-ADF8-3EA1F6C369A7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{592E98A7-F2C6-4388-AE75-46AC28259F00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{592E98A7-F2C6-4388-AE75-46AC28259F00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{592E98A7-F2C6-4388-AE75-46AC28259F00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{592E98A7-F2C6-4388-AE75-46AC28259F00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B182888F-9335-4C0C-AA33-D0F6B4B86C85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B182888F-9335-4C0C-AA33-D0F6B4B86C85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B182888F-9335-4C0C-AA33-D0F6B4B86C85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B182888F-9335-4C0C-AA33-D0F6B4B86C85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1F77757-5F3E-43A1-8C6E-1B29574DF268}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1F77757-5F3E-43A1-8C6E-1B29574DF268}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1F77757-5F3E-43A1-8C6E-1B29574DF268}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1F77757-5F3E-43A1-8C6E-1B29574DF268}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50BE65E3-98E6-499E-8299-282A149D2771}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50BE65E3-98E6-499E-8299-282A149D2771}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50BE65E3-98E6-499E-8299-282A149D2771}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50BE65E3-98E6-499E-8299-282A149D2771}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E2D7B0C-D062-4176-ADF8-3EA1F6C369A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E2D7B0C-D062-4176-ADF8-3EA1F6C369A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E2D7B0C-D062-4176-ADF8-3EA1F6C369A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E2D7B0C-D062-4176-ADF8-3EA1F6C369A7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{50BE65E3-98E6-499E-8299-282A149D2771} = {9E7EC4AC-D0DD-49F4-8561-C1A7DEB14588}
+	EndGlobalSection
+EndGlobal

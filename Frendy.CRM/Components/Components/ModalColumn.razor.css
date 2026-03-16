@@ -1,0 +1,6 @@
+﻿.modal-column {
+    gap: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem;
+}

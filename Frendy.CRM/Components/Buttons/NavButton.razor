@@ -1,0 +1,12 @@
+﻿@using Frendy.CRM.Components.Components
+@using Frendy.CRM.Shared.Enums
+@inherits CustomComponentBase
+
+<div class="flat-button">
+    <NavLink href="@Href" Match="@Match">
+        <div class="icon-wrapper" style="color: var(--text-color);">
+            <Icon IconType="Icon" Size="IconSize.M"></Icon>
+        </div>
+        <span>@Text</span>
+    </NavLink>
+</div>

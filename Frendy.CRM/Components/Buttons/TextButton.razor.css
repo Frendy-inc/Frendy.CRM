@@ -1,0 +1,54 @@
+﻿.text-button-container {
+    display: flex;
+    justify-content: start;
+    transition: background .2s ease, box-shadow .2s ease, transform .05s ease;
+    align-items: center;
+    background: var(--block-color);
+    line-height: normal;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    font-style: normal;
+    font-weight: 700;
+    background: none;
+    gap: 1rem;
+    flex-direction: row;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    
+    &.active {
+        background: var(--active-color);
+    }
+}
+
+.text-button-container:hover:not(.disabled)
+{
+    background: var(--hover-color);
+}
+
+.text-button-container:active:not(.disabled)
+{
+    background: var(--active-color);
+}
+
+.text-button-container.disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.icon-mask {
+    height: 2rem;
+    width: 2rem;
+    background-color: var(--text-color);
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+}
+
+span {
+    &.disabled {
+        color: var(--unfocus-color);
+    }
+}

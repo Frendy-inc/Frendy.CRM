@@ -1,0 +1,17 @@
+﻿@page "/users"
+@using Frendy.CRM.Components.Components
+@inherits CustomComponentBase
+
+<div class="page-container">
+    <Table 
+        HeadTitles="HeadTitles" 
+        Body="Body" 
+        TotalCount="@TotalCount" 
+        PageSize="@PageSize" 
+        CurrentPage="CurrentPage" 
+        OnPageChanged="OnPageChanged"
+        OnPageSizeChanged="OnPageSizeChanged"
+        OnSearchValueChanged="OnSearchValueChanged"
+        OnItemClick="ShowUserDetails">
+    </Table>
+</div>

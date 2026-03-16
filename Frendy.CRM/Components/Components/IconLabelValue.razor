@@ -1,0 +1,11 @@
+﻿@using Frendy.Shared.Extensions
+@inherits CustomComponentBase
+
+<div class="info-label">
+    <IconLabel Icon="Icon" Size="Size" Color="@Color" 
+               Text="@Label"/>
+    <div class="info-label-value">
+        <span class="@(!Value.IsNullOrEmpty() ? ValueClass : "")">@(Value ?? LocalizationService.GetString("TABLE_NO_SPECIFIED"))</span>
+        <span class="unfocus">@Description</span>
+    </div>
+</div>

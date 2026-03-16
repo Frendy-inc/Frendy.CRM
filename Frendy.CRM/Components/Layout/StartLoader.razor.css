@@ -1,0 +1,16 @@
+﻿.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+    position: absolute;
+    background-color: var(--background-color);
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+    z-index: 9999;
+    backdrop-filter: blur(2rem);
+    background-image: url('res/background.svg');
+    background-size: cover;
+    overflow-y: hidden;
+}

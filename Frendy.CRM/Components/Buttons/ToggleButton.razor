@@ -1,0 +1,16 @@
+﻿@using Frendy.CRM.Components.Components
+@using Frendy.CRM.Shared.Enums
+@inherits CustomComponentBase
+
+<div class="toggle-container">
+    <button
+        @onclick="ToggleAsync"
+        class="toggle-option @(IsLeftSelected ? "selected" : "")">
+        <Icon IconType="OptionLeft" Size="IconSize.M"></Icon>
+    </button>
+    <button 
+        @onclick="ToggleAsync" 
+        class="toggle-option @(!IsLeftSelected ? "selected" : "")">
+        <Icon IconType="OptionRight" Size="IconSize.M"></Icon>
+    </button>
+</div>

@@ -1,0 +1,22 @@
+<svg width="352" height="120" viewBox="0 0 352 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Вращающаяся линия -->
+    <line x1="176" y1="60" x2="176" y2="20" stroke="url(#paint0_linear_605_50)" stroke-width="5" stroke-linecap="round">
+        <animateTransform attributeName="transform" type="rotate" from="0 176 60" to="360 176 60" dur="1.5s" repeatCount="indefinite"/>
+    </line>
+    
+    <!-- Внешний круг -->
+    <circle cx="176" cy="60" r="40" stroke="url(#paint0_linear_605_50)" stroke-width="3" stroke-dasharray="60 20" fill="none">
+        <animate attributeName="stroke-dashoffset" values="0;80" dur="1s" repeatCount="indefinite"/>
+        <animateTransform attributeName="transform" type="rotate" from="0 176 60" to="360 176 60" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    
+    <defs>
+        <linearGradient id="paint0_linear_605_50" x1="176" y1="20" x2="176" y2="100" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#DE6C6C"/>
+            <stop offset="0.341385" stop-color="#C6629C"/>
+            <stop offset="1" stop-color="#994FF8"/>
+            <animate attributeName="y1" values="20;100;20" dur="2s" repeatCount="indefinite"/>
+            <animate attributeName="y2" values="100;20;100" dur="2s" repeatCount="indefinite"/>
+        </linearGradient>
+    </defs>
+</svg>
