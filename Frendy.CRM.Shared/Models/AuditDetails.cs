@@ -2,8 +2,14 @@
 
 public class AuditDetails : AuditShortDetailsLookup
 {
-    public string? Email { get; set; }
-    public required string DeviceName { get; set; }
-    public required string City { get; set; }
+    public string? ExecutorEmail { get; set; }
+    public required string ExecutorDeviceName { get; set; }
+    public required string ExecutorCity { get; set; }
     public string? ActionDescription { get; set; }
+    public string? ExecutorPhoneNumber { get; set; }
+    public required string ExecutorIpAddress { get; set; }
+    public string? ExecutorUsername { get; set; }
+    public string? TargetEmail { get; set; }
+    public string? TargetPhoneNumber { get; set; }
+    public string? TargetUsername { get; set; }
 }

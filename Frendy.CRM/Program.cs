@@ -1,6 +1,7 @@
 using Frendy.CRM.Components;
 using Frendy.CRM.Resources;
 using Frendy.CRM.Services;
+using Frendy.CRM.Shared;
 using Microsoft.Extensions.Localization;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +16,7 @@ builder.Services.AddLocalization(opt =>
 });
 builder.Services.AddSingleton<IStringLocalizer, StringLocalizer<Resources>>();
 builder.Services.AddServices();
+builder.Services.AddScoped<AppState>();
 
 var app = builder.Build();
 

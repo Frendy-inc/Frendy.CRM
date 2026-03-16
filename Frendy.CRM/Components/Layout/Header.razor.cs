@@ -19,6 +19,7 @@ public partial class Header: CustomComponentBase
     public string? FullName { get; set; }
     public string UserName { get; set; } = null!;
     public string Role { get; set; } = null!;
+    public string? Avatar { get; set; }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -26,6 +27,7 @@ public partial class Header: CustomComponentBase
         
         FullName = currentUser.FullName ?? currentUser.UserName;
         UserName = currentUser.UserName;
+        Avatar = currentUser.Avatar;
 
         Role = currentUser.Role.GetLocalization(LocalizationService);
         

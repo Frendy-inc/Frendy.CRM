@@ -60,6 +60,105 @@ namespace Frendy.CRM.Resources.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Добавление нового действия.
+        /// </summary>
+        internal static string ACTION_ADD_NEW {
+            get {
+                return ResourceManager.GetString("ACTION_ADD_NEW", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Авторизация.
+        /// </summary>
+        internal static string ACTION_AUTHORIZATION {
+            get {
+                return ResourceManager.GetString("ACTION_AUTHORIZATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Блокировка пользователя.
+        /// </summary>
+        internal static string ACTION_BLOCKING {
+            get {
+                return ResourceManager.GetString("ACTION_BLOCKING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Смена роли пользователя.
+        /// </summary>
+        internal static string ACTION_CHANGE_ROLE {
+            get {
+                return ResourceManager.GetString("ACTION_CHANGE_ROLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Пояснение.
+        /// </summary>
+        internal static string ACTION_DESCRIPTION {
+            get {
+                return ResourceManager.GetString("ACTION_DESCRIPTION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Получение списка пользователей.
+        /// </summary>
+        internal static string ACTION_GET_USER_LIST {
+            get {
+                return ResourceManager.GetString("ACTION_GET_USER_LIST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Смена пароля.
+        /// </summary>
+        internal static string ACTION_PASS_CHANGE {
+            get {
+                return ResourceManager.GetString("ACTION_PASS_CHANGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Обновление профиля.
+        /// </summary>
+        internal static string ACTION_PROFILE_UPDATE {
+            get {
+                return ResourceManager.GetString("ACTION_PROFILE_UPDATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Регистрация.
+        /// </summary>
+        internal static string ACTION_REGISTRATION {
+            get {
+                return ResourceManager.GetString("ACTION_REGISTRATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Разблокировка пользователя.
+        /// </summary>
+        internal static string ACTION_UNBLOCKING {
+            get {
+                return ResourceManager.GetString("ACTION_UNBLOCKING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Обновление действия.
+        /// </summary>
+        internal static string ACTION_UPDATE {
+            get {
+                return ResourceManager.GetString("ACTION_UPDATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Время действия.
         /// </summary>
         internal static string AUDIT_MODAL_ACTION_DATE {
@@ -69,11 +168,11 @@ namespace Frendy.CRM.Resources.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Тип действия.
+        ///   Looks up a localized string similar to Информация о действии.
         /// </summary>
-        internal static string AUDIT_MODAL_ACTION_TYPE {
+        internal static string AUDIT_MODAL_ACTION_INFO {
             get {
-                return ResourceManager.GetString("AUDIT_MODAL_ACTION_TYPE", resourceCulture);
+                return ResourceManager.GetString("AUDIT_MODAL_ACTION_INFO", resourceCulture);
             }
         }
         
@@ -114,38 +213,56 @@ namespace Frendy.CRM.Resources.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Администратор.
+        ///   Looks up a localized string similar to Email.
         /// </summary>
-        internal static string HEADER_ADMIN_ROLE {
+        internal static string AUTH_TYPE_EMAIL {
             get {
-                return ResourceManager.GetString("HEADER_ADMIN_ROLE", resourceCulture);
+                return ResourceManager.GetString("AUTH_TYPE_EMAIL", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Модератор.
+        ///   Looks up a localized string similar to Номер телефона.
         /// </summary>
-        internal static string HEADER_MODER_ROLE {
+        internal static string AUTH_TYPE_PHONE_NUMBER {
             get {
-                return ResourceManager.GetString("HEADER_MODER_ROLE", resourceCulture);
+                return ResourceManager.GetString("AUTH_TYPE_PHONE_NUMBER", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Поддержка.
+        ///   Looks up a localized string similar to ВКонтакте.
         /// </summary>
-        internal static string HEADER_SUPPORT_ROLE {
+        internal static string AUTH_TYPE_VK {
             get {
-                return ResourceManager.GetString("HEADER_SUPPORT_ROLE", resourceCulture);
+                return ResourceManager.GetString("AUTH_TYPE_VK", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Пользователь.
+        ///   Looks up a localized string similar to Яндекс.
         /// </summary>
-        internal static string HEADER_USER_ROLE {
+        internal static string AUTH_TYPE_YANDEX {
             get {
-                return ResourceManager.GetString("HEADER_USER_ROLE", resourceCulture);
+                return ResourceManager.GetString("AUTH_TYPE_YANDEX", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Контактная информация.
+        /// </summary>
+        internal static string CONTACT_INFORMATION {
+            get {
+                return ResourceManager.GetString("CONTACT_INFORMATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Нет.
+        /// </summary>
+        internal static string FALSE_STATUS {
+            get {
+                return ResourceManager.GetString("FALSE_STATUS", resourceCulture);
             }
         }
         
@@ -204,6 +321,51 @@ namespace Frendy.CRM.Resources.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Администратор.
+        /// </summary>
+        internal static string ROLE_ADMIN {
+            get {
+                return ResourceManager.GetString("ROLE_ADMIN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Модератор.
+        /// </summary>
+        internal static string ROLE_MODER {
+            get {
+                return ResourceManager.GetString("ROLE_MODER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Поддержка.
+        /// </summary>
+        internal static string ROLE_SUPPORT {
+            get {
+                return ResourceManager.GetString("ROLE_SUPPORT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Пользователь.
+        /// </summary>
+        internal static string ROLE_USER {
+            get {
+                return ResourceManager.GetString("ROLE_USER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Статус.
+        /// </summary>
+        internal static string STATUS {
+            get {
+                return ResourceManager.GetString("STATUS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Время действия.
         /// </summary>
         internal static string TABLE_ACTION_TIME_TITLE {
@@ -218,51 +380,6 @@ namespace Frendy.CRM.Resources.Properties {
         internal static string TABLE_ACTION_TITLE {
             get {
                 return ResourceManager.GetString("TABLE_ACTION_TITLE", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Добавление нового действия.
-        /// </summary>
-        internal static string TABLE_ADD_NEW_ACTION {
-            get {
-                return ResourceManager.GetString("TABLE_ADD_NEW_ACTION", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Авторизация.
-        /// </summary>
-        internal static string TABLE_AUTHORIZATION_ACTION {
-            get {
-                return ResourceManager.GetString("TABLE_AUTHORIZATION_ACTION", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Блокировка пользователя.
-        /// </summary>
-        internal static string TABLE_BLOCKING_ACTION {
-            get {
-                return ResourceManager.GetString("TABLE_BLOCKING_ACTION", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Смена роли пользователя.
-        /// </summary>
-        internal static string TABLE_CHANGE_ROLE_ACTION {
-            get {
-                return ResourceManager.GetString("TABLE_CHANGE_ROLE_ACTION", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Получение списка пользователей.
-        /// </summary>
-        internal static string TABLE_GET_USER_LIST_ACTION {
-            get {
-                return ResourceManager.GetString("TABLE_GET_USER_LIST_ACTION", resourceCulture);
             }
         }
         
@@ -294,6 +411,15 @@ namespace Frendy.CRM.Resources.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Не указано.
+        /// </summary>
+        internal static string TABLE_NO_SPECIFIED {
+            get {
+                return ResourceManager.GetString("TABLE_NO_SPECIFIED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Следующая.
         /// </summary>
         internal static string TABLE_PAGINATION_NEXT {
@@ -312,33 +438,6 @@ namespace Frendy.CRM.Resources.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Смена пароля.
-        /// </summary>
-        internal static string TABLE_PASS_CHANGE_ACTION {
-            get {
-                return ResourceManager.GetString("TABLE_PASS_CHANGE_ACTION", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Обновление профиля.
-        /// </summary>
-        internal static string TABLE_PROFILE_UPDATE_ACTION {
-            get {
-                return ResourceManager.GetString("TABLE_PROFILE_UPDATE_ACTION", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Регистрация.
-        /// </summary>
-        internal static string TABLE_REGISTRATION_ACTION {
-            get {
-                return ResourceManager.GetString("TABLE_REGISTRATION_ACTION", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Цель.
         /// </summary>
         internal static string TABLE_TARGET_TITLE {
@@ -348,29 +447,119 @@ namespace Frendy.CRM.Resources.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Разблокировка пользователя.
-        /// </summary>
-        internal static string TABLE_UNBLOCKING_ACTION {
-            get {
-                return ResourceManager.GetString("TABLE_UNBLOCKING_ACTION", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Обновление действия.
-        /// </summary>
-        internal static string TABLE_UPDATE_ACTION {
-            get {
-                return ResourceManager.GetString("TABLE_UPDATE_ACTION", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Поиск....
         /// </summary>
         internal static string TEXT_INPUT_SEARCH {
             get {
                 return ResourceManager.GetString("TEXT_INPUT_SEARCH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Да.
+        /// </summary>
+        internal static string TRUE_STATUS {
+            get {
+                return ResourceManager.GetString("TRUE_STATUS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Активность и устройство.
+        /// </summary>
+        internal static string USER_ACTIVITY_AND_DEVICES {
+            get {
+                return ResourceManager.GetString("USER_ACTIVITY_AND_DEVICES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Тип авторизации.
+        /// </summary>
+        internal static string USER_AUTH_TYPE_TITLE {
+            get {
+                return ResourceManager.GetString("USER_AUTH_TYPE_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Дата рождения.
+        /// </summary>
+        internal static string USER_BIRTHDAY {
+            get {
+                return ResourceManager.GetString("USER_BIRTHDAY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Город.
+        /// </summary>
+        internal static string USER_CITY {
+            get {
+                return ResourceManager.GetString("USER_CITY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Устройство.
+        /// </summary>
+        internal static string USER_DEVICE {
+            get {
+                return ResourceManager.GetString("USER_DEVICE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email.
+        /// </summary>
+        internal static string USER_EMAIL_TITLE {
+            get {
+                return ResourceManager.GetString("USER_EMAIL_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Заблокирован.
+        /// </summary>
+        internal static string USER_IS_BANNED_TITLE {
+            get {
+                return ResourceManager.GetString("USER_IS_BANNED_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Не заблокирован.
+        /// </summary>
+        internal static string USER_IS_NOT_BANNED_TITLE {
+            get {
+                return ResourceManager.GetString("USER_IS_NOT_BANNED_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Не в сети.
+        /// </summary>
+        internal static string USER_IS_OFFLINE_TITLE {
+            get {
+                return ResourceManager.GetString("USER_IS_OFFLINE_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Онлайн.
+        /// </summary>
+        internal static string USER_IS_ONLINE_TITLE {
+            get {
+                return ResourceManager.GetString("USER_IS_ONLINE_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Последняя активность.
+        /// </summary>
+        internal static string USER_LAST_ACTIVITY_TITLE {
+            get {
+                return ResourceManager.GetString("USER_LAST_ACTIVITY_TITLE", resourceCulture);
             }
         }
         
@@ -398,6 +587,87 @@ namespace Frendy.CRM.Resources.Properties {
         internal static string USER_MENU_THEME_TITLE {
             get {
                 return ResourceManager.GetString("USER_MENU_THEME_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Информация о пользователе.
+        /// </summary>
+        internal static string USER_MODAL_TITLE {
+            get {
+                return ResourceManager.GetString("USER_MODAL_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Имя.
+        /// </summary>
+        internal static string USER_NAME_TITLE {
+            get {
+                return ResourceManager.GetString("USER_NAME_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Номер телефона.
+        /// </summary>
+        internal static string USER_PHONE_NUMBER_TITLE {
+            get {
+                return ResourceManager.GetString("USER_PHONE_NUMBER_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Дата регистрации.
+        /// </summary>
+        internal static string USER_REGISTRATION_DATE {
+            get {
+                return ResourceManager.GetString("USER_REGISTRATION_DATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Роль.
+        /// </summary>
+        internal static string USER_ROLE_TITLE {
+            get {
+                return ResourceManager.GetString("USER_ROLE_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Имя пользователя.
+        /// </summary>
+        internal static string USER_USERNAME {
+            get {
+                return ResourceManager.GetString("USER_USERNAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to год.
+        /// </summary>
+        internal static string USER_YEAR {
+            get {
+                return ResourceManager.GetString("USER_YEAR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to лет.
+        /// </summary>
+        internal static string USER_YEARS {
+            get {
+                return ResourceManager.GetString("USER_YEARS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to года.
+        /// </summary>
+        internal static string USER_YEARS_SECOND_VARIANT {
+            get {
+                return ResourceManager.GetString("USER_YEARS_SECOND_VARIANT", resourceCulture);
             }
         }
     }

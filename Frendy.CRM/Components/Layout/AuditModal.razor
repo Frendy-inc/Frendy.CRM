@@ -1,98 +1,97 @@
-﻿@using Frendy.CRM.Components.Buttons
-@using Frendy.CRM.Components.Components
-@using Frendy.CRM.Shared
+﻿@using Frendy.CRM.Components.Components
 @using Frendy.CRM.Shared.Enums
 @using Frendy.CRM.Shared.Extensions
 @using Frendy.Shared.Extensions
 @inherits CustomComponentBase
 
-<div class="modal-bg @(AppState.ActionModalState ? "show" : "")">
-    <div class="modal-container">
-        <div class="modal-header">
-            <span style="font-weight: 700;">@LocalizationService.GetString("AUDIT_MODAL_TITLE")</span>
-            <IconButton Icon="Icons.Close" Size="IconSize.Small" OnClick="Close"/>
-        </div>
-        <div class="modal-content">
-            <div class="modal-id">
-                <div class="modal-id-info">
-                    <span style="font-weight: 700;">@LocalizationService.GetString("AUDIT_MODAL_ID")</span>
-                    <span>@(AuditDetails.Id)</span>
-                </div>
-                <IconButton Icon="Icons.Copy" Size="IconSize.Small" OnClick="Copy"/>
-            </div>
-            <div class="modal-action-time">
-                <span class="unfocus">@LocalizationService.GetString("AUDIT_MODAL_ACTION_DATE")</span>
-                <span>@(AuditDetails.ActionDate.ToString("dd.MM.yyyy hh:mm"))</span>
-            </div>
-            <hr class="horizontal"/>
-            <div class="modal-person">
-                <div class="modal-person-title">
-                    <div class="modal-person-square-icon">
-                        <Icon IconType="Icons.Profile" Size="IconSize.Medium"/>
-                    </div>
-                    <span style="font-weight: 700;">@LocalizationService.GetString("AUDIT_MODAL_EXECUTOR")</span>
-                </div>
-                <div class="modal-person-info">
-                    <div class="modal-person-info-name">
-                        <div class="modal-person-circle-icon">
-                            <Icon IconType="Icons.Profile" Size="IconSize.Small"/>
-                        </div>
-                        <span>@($"{AuditDetails.ExecutorFirstName} {AuditDetails.ExecutorLastName}")</span>
-                        <span class="unfocus">@(AuditDetails.ExecutorRole.GetLocalization(LocalizationService))</span>
-                    </div>
-                    @if (!AuditDetails.Email.IsNullOrEmpty())
-                    {
-                        <div class="modal-person-info-elem">
-                            <hr class="vertical"/>
-                            <span class="unfocus">@(AuditDetails.Email)</span>
-                        </div>
-                    }
-                    <div class="modal-person-info-elem">
-                        <hr class="vertical"/>
-                        <span class="unfocus">@($"{AuditDetails.DeviceName}, {AuditDetails.City}")</span>
-                    </div>
-                </div>
-            </div>
-            <hr class="horizontal"/>
-            <div class="modal-person">
-                <div class="modal-person-title">
-                    <div class="modal-person-square-icon">
-                        <Icon IconType="Icons.Profile" Size="IconSize.Medium"/>
-                    </div>
-                    <span style="font-weight: 700;">@LocalizationService.GetString("AUDIT_MODAL_TARGET")</span>
-                </div>
-                <div class="modal-person-info">
-                    <div class="modal-person-info-name">
-                        <div class="modal-person-circle-icon">
-                            <Icon IconType="Icons.Profile" Size="IconSize.Small"/>
-                        </div>
-                        <span>@($"{AuditDetails.TargetFirstName} {AuditDetails.TargetLastName}")</span>
-                        <span class="unfocus">@(AuditDetails.TargetRole.GetLocalization(LocalizationService))</span>
-                    </div>
-                </div>
-            </div>
-            <hr class="horizontal"/>
-            <div class="modal-person">
-                <div class="modal-person-title">
-                    <div class="modal-person-square-icon @(AuditDetails.Action.GetActionClass())">
-                        <Icon IconType="Icons.Tag" Size="IconSize.Medium" Color="@_iconStatusStyle"/>
-                    </div>
-                    <span style="font-weight: 700;">@LocalizationService.GetString("AUDIT_MODAL_ACTION_TYPE")</span>
-                </div>
-                <div class="modal-person-info">
-                    <div class="modal-person-info-elem">
-                        <hr class="vertical"/>
-                        <span style="font-weight: 700;" class="@(AuditDetails.Action.GetActionClass())">@(AuditDetails.Action.GetLocalization(LocalizationService))</span>
-                    </div>
-                    @if (!AuditDetails.ActionDescription.IsNullOrEmpty())
-                    {
-                        <div class="modal-person-info-elem">
-                            <hr class="vertical"/>
-                            <span class="unfocus">@(AuditDetails.ActionDescription)</span>
-                        </div>
-                    }
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<ModalBase IsOpen="AppState.ActionModalState"
+           Title="@LocalizationService.GetString("AUDIT_MODAL_TITLE")"
+           OnClose="Close">
+    <CopyField Label="@LocalizationService.GetString("AUDIT_MODAL_ID")" Value="@AuditDetails!.Id.ToString()" />
+    <ModalSection>
+        <IconLabelTitle Icon="Icons.Profile" Size="IconSize.M" Text="@LocalizationService.GetString("AUDIT_MODAL_EXECUTOR")"/>
+        <ModalRow>
+            <ModalColumn>
+                <IconLabelValue Icon="Icons.Profile" Size="IconSize.S" Color="var(--unfocus-color)"
+                                Label="@LocalizationService.GetString("USER_NAME_TITLE")"
+                                Value="@($"{AuditDetails.ExecutorLastName} {AuditDetails.ExecutorFirstName}")"/>
+                <IconLabelValue Icon="Icons.Profile" Size="IconSize.S" Color="var(--unfocus-color)"
+                                Label="@LocalizationService.GetString("USER_ROLE_TITLE")"
+                                Value="@(AuditDetails.ExecutorRole.GetLocalization(LocalizationService))"/>
+                <IconLabelValue Icon="Icons.Profile" Size="IconSize.S" Color="var(--unfocus-color)"
+                                Label="@LocalizationService.GetString("USER_USERNAME")"
+                                Value="@(AuditDetails.ExecutorUsername)"
+                                ValueClass="status purple bg"/>
+                <IconLabelValue Icon="Icons.Email" Size="IconSize.S" Color="var(--unfocus-color)"
+                                Label="@LocalizationService.GetString("USER_EMAIL_TITLE")"
+                                Value="@(AuditDetails.ExecutorEmail ?? LocalizationService.GetString("TABLE_NO_SPECIFIED"))"/>
+                <IconLabelValue Icon="Icons.Phone" Size="IconSize.S" Color="var(--unfocus-color)"
+                                Label="@LocalizationService.GetString("USER_PHONE_NUMBER_TITLE")"
+                                Value="@(!AuditDetails.ExecutorPhoneNumber.IsNullOrEmpty()
+                                           ? AuditDetails.ExecutorPhoneNumber!.FormatPhone()
+                                           : LocalizationService.GetString("TABLE_NO_SPECIFIED"))"/>
+            </ModalColumn>
+            <hr class="vertical"/>
+            <ModalColumn>
+                <IconLabelValue Icon="Icons.Computer" Size="IconSize.S" Color="var(--unfocus-color)"
+                                Label="@LocalizationService.GetString("USER_DEVICE")"
+                                Value="@AuditDetails.ExecutorDeviceName"/>
+                <IconLabelValue Icon="Icons.Map" Size="IconSize.S" Color="var(--unfocus-color)"
+                                Label="@LocalizationService.GetString("USER_CITY")"
+                                Value="@AuditDetails.ExecutorCity"/>
+                <IconLabelValue Icon="Icons.Network" Size="IconSize.S" Color="var(--unfocus-color)"
+                                Label="IP"
+                                Value="@AuditDetails.ExecutorIpAddress"/>
+            </ModalColumn>
+        </ModalRow>
+    </ModalSection>
+    <hr class="horizontal"/>
+    <ModalSection>
+        <IconLabelTitle Icon="Icons.Profile" Size="IconSize.M" Text="@LocalizationService.GetString("AUDIT_MODAL_TARGET")"/>
+        <ModalRow>
+            <ModalColumn>
+                <IconLabelValue Icon="Icons.Profile" Size="IconSize.S" Color="var(--unfocus-color)"
+                                Label="@LocalizationService.GetString("USER_NAME_TITLE")"
+                                Value="@($"{AuditDetails.TargetLastName} {AuditDetails.TargetFirstName}")"/>
+                <IconLabelValue Icon="Icons.Profile" Size="IconSize.S" Color="var(--unfocus-color)"
+                                Label="@LocalizationService.GetString("USER_ROLE_TITLE")"
+                                Value="@(AuditDetails.TargetRole.GetLocalization(LocalizationService))"/>
+                <IconLabelValue Icon="Icons.Profile" Size="IconSize.S" Color="var(--unfocus-color)"
+                                Label="@LocalizationService.GetString("USER_USERNAME")"
+                                Value="@(AuditDetails.TargetUsername)"
+                                ValueClass="status purple bg"/>
+            </ModalColumn>
+            <hr class="vertical"/>
+            <ModalColumn>
+                <IconLabelValue Icon="Icons.Email" Size="IconSize.S" Color="var(--unfocus-color)"
+                                Label="@LocalizationService.GetString("USER_EMAIL_TITLE")"
+                                Value="@(AuditDetails.TargetEmail ?? LocalizationService.GetString("TABLE_NO_SPECIFIED"))"/>
+                <IconLabelValue Icon="Icons.Phone" Size="IconSize.S" Color="var(--unfocus-color)"
+                                Label="@LocalizationService.GetString("USER_PHONE_NUMBER_TITLE")"
+                                Value="@(!AuditDetails.TargetPhoneNumber.IsNullOrEmpty()
+                                           ? AuditDetails.TargetPhoneNumber!.FormatPhone()
+                                           : LocalizationService.GetString("TABLE_NO_SPECIFIED"))"/>
+            </ModalColumn>
+        </ModalRow>
+    </ModalSection>
+    <hr class="horizontal"/>
+    <ModalSection>
+        <IconLabelTitle Icon="Icons.Tag" Size="IconSize.M" IconColor="@_iconStatusStyle"
+                        IconClass="@(AuditDetails.Action.GetStyleClass())"
+                        Text="@LocalizationService.GetString("AUDIT_MODAL_ACTION_INFO")"/>
+        <ModalRow>
+            <ModalColumn>
+                <IconLabelValue Icon="Icons.Tag" Size="IconSize.S" Color="var(--unfocus-color)"
+                                Label="@LocalizationService.GetString("TABLE_ACTION_TITLE")"
+                                Value="@(AuditDetails.Action.GetLocalization(LocalizationService))"
+                                ValueClass="@_actionTypeClass"/>
+                <IconLabelValue Icon="Icons.Text" Size="IconSize.S" Color="var(--unfocus-color)"
+                                Label="@LocalizationService.GetString("ACTION_DESCRIPTION")"
+                                Value="@(AuditDetails.ActionDescription ?? LocalizationService.GetString("TABLE_NO_SPECIFIED"))"/>
+                <IconLabelValue Icon="Icons.Clock" Size="IconSize.S" Color="var(--unfocus-color)"
+                                Label="@LocalizationService.GetString("AUDIT_MODAL_ACTION_DATE")"
+                                Value="@(AuditDetails.ActionDate.GetStringDate(withTime: true))"/>
+            </ModalColumn>
+        </ModalRow>
+    </ModalSection>
+</ModalBase>

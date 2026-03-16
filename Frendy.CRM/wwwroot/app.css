@@ -15,6 +15,10 @@
     --neutral-secondary-color: rgba(250, 184, 91, 0.30);
     --negative-primary-color: #1D1D2E;
     --negative-secondary-color: rgba(222, 108, 108, 0.30);
+    --purple-primary-color: #1D1D2E;
+    --purple-secondary-color: rgba(153, 79, 248, 0.30);
+    --blue-primary-color: #1D1D2E;
+    --blue-secondary-color: rgba(91, 114, 250, 0.30);
     --modal-bg-color: rgba(0, 0, 0, 0.4);
 
     font-size: 1rem;
@@ -38,6 +42,10 @@
     --neutral-secondary-color: rgba(250, 184, 91, 0.10);
     --negative-primary-color: #DE6C6C;
     --negative-secondary-color: rgba(222, 108, 108, 0.10);
+    --purple-primary-color: #994FF8;
+    --purple-secondary-color: rgba(153, 79, 248, 0.10);
+    --blue-primary-color: #5B72FA;
+    --blue-secondary-color: rgba(91, 114, 250, 0.10);
     --modal-bg-color: rgba(0, 0, 0, 0.4);
 
     font-size: 1rem;
@@ -101,21 +109,14 @@ body {
 span {
     color: var(--text-color);
     text-decoration: none;
-}
-
-span {
-    font-size: 1rem;
-}
-
-span {
+    
     &.positive {
         color: var(--positive-primary-color);
         &.bg {
             background-color: var(--positive-secondary-color);
-            box-shadow: 0 0 10px 0 rgb(91, 195, 100, 0.15);          
+            box-shadow: 0 0 10px 0 rgb(91, 195, 100, 0.15);
         }
     }
-
     &.neutral {
         color: var(--neutral-primary-color);
         &.bg {
@@ -123,13 +124,33 @@ span {
             box-shadow: 0 0 10px 0 rgba(250, 184, 91, 0.15);
         }
     }
-
     &.negative {
         color: var(--negative-primary-color);
         &.bg {
             background-color: var(--negative-secondary-color);
             box-shadow: 0 0 10px 0 rgba(222, 108, 108, 0.15);
         }
+    }
+    &.purple {
+        color: var(--purple-primary-color);
+        &.bg {
+            background-color: var(--purple-secondary-color);
+            box-shadow: 0 0 10px 0 rgba(153, 79, 248, 0.15);
+        }
+    }
+    &.blue {
+        color: var(--blue-primary-color);
+        &.bg {
+            background-color: var(--blue-secondary-color);
+            box-shadow: 0 0 10px 0 rgba(91, 114, 250, 0.15);
+        }
+    }    
+    &.unfocus {
+        color: var(--unfocus-color);
+    }
+    &.status {
+        border-radius: 1rem;
+        padding: 0.25rem 1rem;
     }
 }
 
@@ -144,5 +165,13 @@ div {
 
     &.negative {
         background-color: var(--negative-secondary-color) !important;
+    }
+    
+    &.purple {
+        background-color: var(--purple-secondary-color) !important;
+    }
+    
+    &.blue {
+        background-color: var(--blue-secondary-color) !important;
     }
 }

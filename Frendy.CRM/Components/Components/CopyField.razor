@@ -1,0 +1,11 @@
+﻿@using Frendy.CRM.Components.Buttons
+@using Frendy.CRM.Shared.Enums
+@inherits CustomComponentBase
+
+<div class="copy-field-container">
+    <div class="copy-field-label">
+        <span class="unfocus">@Label</span>
+        <span>@Value</span>
+    </div>
+    <IconButton Icon="Icons.Copy" Size="IconSize.S" OnClick="CopyAsync"/>
+</div>

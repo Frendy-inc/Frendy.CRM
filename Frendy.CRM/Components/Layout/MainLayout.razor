@@ -14,6 +14,10 @@
         {
             <AuditModal ActionId="AppState.ActionDetailsId"/>
         }
+        @if (AppState.UserModalState)
+        {
+            <UserDetailsModal UserId="AppState.UserDetailsId"/>
+        }
         <Header OnToggleNavMenu="ToggleNavMenuState" OnToggleUserMenu="ToggleUserMenuState"></Header>
         <UserMenu IsCollapsed="@_userMenuIsCollapsed"/>
         <article class="content px-4">
@@ -31,6 +35,9 @@
     
     [Inject]
     private IJsRuntimeService JsRuntime { get; set; } = null!;
+    
+    [Inject]
+    public AppState AppState { get; set; } = null!;
     
     private bool _navMenuIsCollapsed;
     private bool _userMenuIsCollapsed = true;

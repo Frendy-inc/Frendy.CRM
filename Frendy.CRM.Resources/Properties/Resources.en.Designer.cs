@@ -60,6 +60,105 @@ namespace Frendy.CRM.Resources.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Adding new action.
+        /// </summary>
+        internal static string ACTION_ADD_NEW {
+            get {
+                return ResourceManager.GetString("ACTION_ADD_NEW", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Authorization.
+        /// </summary>
+        internal static string ACTION_AUTHORIZATION {
+            get {
+                return ResourceManager.GetString("ACTION_AUTHORIZATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Blocking the user.
+        /// </summary>
+        internal static string ACTION_BLOCKING {
+            get {
+                return ResourceManager.GetString("ACTION_BLOCKING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Changing the user&apos;s role.
+        /// </summary>
+        internal static string ACTION_CHANGE_ROLE {
+            get {
+                return ResourceManager.GetString("ACTION_CHANGE_ROLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Explanation.
+        /// </summary>
+        internal static string ACTION_DESCRIPTION {
+            get {
+                return ResourceManager.GetString("ACTION_DESCRIPTION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Getting user list.
+        /// </summary>
+        internal static string ACTION_GET_USER_LIST {
+            get {
+                return ResourceManager.GetString("ACTION_GET_USER_LIST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password change.
+        /// </summary>
+        internal static string ACTION_PASS_CHANGE {
+            get {
+                return ResourceManager.GetString("ACTION_PASS_CHANGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Profile update.
+        /// </summary>
+        internal static string ACTION_PROFILE_UPDATE {
+            get {
+                return ResourceManager.GetString("ACTION_PROFILE_UPDATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Registration.
+        /// </summary>
+        internal static string ACTION_REGISTRATION {
+            get {
+                return ResourceManager.GetString("ACTION_REGISTRATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unblocking the user.
+        /// </summary>
+        internal static string ACTION_UNBLOCKING {
+            get {
+                return ResourceManager.GetString("ACTION_UNBLOCKING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Action update.
+        /// </summary>
+        internal static string ACTION_UPDATE {
+            get {
+                return ResourceManager.GetString("ACTION_UPDATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Action date.
         /// </summary>
         internal static string AUDIT_MODAL_ACTION_DATE {
@@ -69,11 +168,11 @@ namespace Frendy.CRM.Resources.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Action type.
+        ///   Looks up a localized string similar to Action information.
         /// </summary>
-        internal static string AUDIT_MODAL_ACTION_TYPE {
+        internal static string AUDIT_MODAL_ACTION_INFO {
             get {
-                return ResourceManager.GetString("AUDIT_MODAL_ACTION_TYPE", resourceCulture);
+                return ResourceManager.GetString("AUDIT_MODAL_ACTION_INFO", resourceCulture);
             }
         }
         
@@ -114,38 +213,56 @@ namespace Frendy.CRM.Resources.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Administrator.
+        ///   Looks up a localized string similar to Email.
         /// </summary>
-        internal static string HEADER_ADMIN_ROLE {
+        internal static string AUTH_TYPE_EMAIL {
             get {
-                return ResourceManager.GetString("HEADER_ADMIN_ROLE", resourceCulture);
+                return ResourceManager.GetString("AUTH_TYPE_EMAIL", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Moderator.
+        ///   Looks up a localized string similar to Phone number.
         /// </summary>
-        internal static string HEADER_MODER_ROLE {
+        internal static string AUTH_TYPE_PHONE_NUMBER {
             get {
-                return ResourceManager.GetString("HEADER_MODER_ROLE", resourceCulture);
+                return ResourceManager.GetString("AUTH_TYPE_PHONE_NUMBER", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Support.
+        ///   Looks up a localized string similar to VK.
         /// </summary>
-        internal static string HEADER_SUPPORT_ROLE {
+        internal static string AUTH_TYPE_VK {
             get {
-                return ResourceManager.GetString("HEADER_SUPPORT_ROLE", resourceCulture);
+                return ResourceManager.GetString("AUTH_TYPE_VK", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to User.
+        ///   Looks up a localized string similar to Yandex.
         /// </summary>
-        internal static string HEADER_USER_ROLE {
+        internal static string AUTH_TYPE_YANDEX {
             get {
-                return ResourceManager.GetString("HEADER_USER_ROLE", resourceCulture);
+                return ResourceManager.GetString("AUTH_TYPE_YANDEX", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contact information.
+        /// </summary>
+        internal static string CONTACT_INFORMATION {
+            get {
+                return ResourceManager.GetString("CONTACT_INFORMATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No.
+        /// </summary>
+        internal static string FALSE_STATUS {
+            get {
+                return ResourceManager.GetString("FALSE_STATUS", resourceCulture);
             }
         }
         
@@ -204,6 +321,51 @@ namespace Frendy.CRM.Resources.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Administrator.
+        /// </summary>
+        internal static string ROLE_ADMIN {
+            get {
+                return ResourceManager.GetString("ROLE_ADMIN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Moderator.
+        /// </summary>
+        internal static string ROLE_MODER {
+            get {
+                return ResourceManager.GetString("ROLE_MODER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Support.
+        /// </summary>
+        internal static string ROLE_SUPPORT {
+            get {
+                return ResourceManager.GetString("ROLE_SUPPORT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User.
+        /// </summary>
+        internal static string ROLE_USER {
+            get {
+                return ResourceManager.GetString("ROLE_USER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Status.
+        /// </summary>
+        internal static string STATUS {
+            get {
+                return ResourceManager.GetString("STATUS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Action time.
         /// </summary>
         internal static string TABLE_ACTION_TIME_TITLE {
@@ -218,51 +380,6 @@ namespace Frendy.CRM.Resources.Properties {
         internal static string TABLE_ACTION_TITLE {
             get {
                 return ResourceManager.GetString("TABLE_ACTION_TITLE", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Adding new action.
-        /// </summary>
-        internal static string TABLE_ADD_NEW_ACTION {
-            get {
-                return ResourceManager.GetString("TABLE_ADD_NEW_ACTION", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Authorization.
-        /// </summary>
-        internal static string TABLE_AUTHORIZATION_ACTION {
-            get {
-                return ResourceManager.GetString("TABLE_AUTHORIZATION_ACTION", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Blocking the user.
-        /// </summary>
-        internal static string TABLE_BLOCKING_ACTION {
-            get {
-                return ResourceManager.GetString("TABLE_BLOCKING_ACTION", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Changing the user&apos;s role.
-        /// </summary>
-        internal static string TABLE_CHANGE_ROLE_ACTION {
-            get {
-                return ResourceManager.GetString("TABLE_CHANGE_ROLE_ACTION", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Getting user list.
-        /// </summary>
-        internal static string TABLE_GET_USER_LIST_ACTION {
-            get {
-                return ResourceManager.GetString("TABLE_GET_USER_LIST_ACTION", resourceCulture);
             }
         }
         
@@ -294,6 +411,15 @@ namespace Frendy.CRM.Resources.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Not specified.
+        /// </summary>
+        internal static string TABLE_NO_SPECIFIED {
+            get {
+                return ResourceManager.GetString("TABLE_NO_SPECIFIED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Next.
         /// </summary>
         internal static string TABLE_PAGINATION_NEXT {
@@ -312,33 +438,6 @@ namespace Frendy.CRM.Resources.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Password change.
-        /// </summary>
-        internal static string TABLE_PASS_CHANGE_ACTION {
-            get {
-                return ResourceManager.GetString("TABLE_PASS_CHANGE_ACTION", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Profile update.
-        /// </summary>
-        internal static string TABLE_PROFILE_UPDATE_ACTION {
-            get {
-                return ResourceManager.GetString("TABLE_PROFILE_UPDATE_ACTION", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Registration.
-        /// </summary>
-        internal static string TABLE_REGISTRATION_ACTION {
-            get {
-                return ResourceManager.GetString("TABLE_REGISTRATION_ACTION", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Target.
         /// </summary>
         internal static string TABLE_TARGET_TITLE {
@@ -348,29 +447,119 @@ namespace Frendy.CRM.Resources.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Unblocking the user.
-        /// </summary>
-        internal static string TABLE_UNBLOCKING_ACTION {
-            get {
-                return ResourceManager.GetString("TABLE_UNBLOCKING_ACTION", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Action update.
-        /// </summary>
-        internal static string TABLE_UPDATE_ACTION {
-            get {
-                return ResourceManager.GetString("TABLE_UPDATE_ACTION", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Search....
         /// </summary>
         internal static string TEXT_INPUT_SEARCH {
             get {
                 return ResourceManager.GetString("TEXT_INPUT_SEARCH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes.
+        /// </summary>
+        internal static string TRUE_STATUS {
+            get {
+                return ResourceManager.GetString("TRUE_STATUS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Activity and device.
+        /// </summary>
+        internal static string USER_ACTIVITY_AND_DEVICES {
+            get {
+                return ResourceManager.GetString("USER_ACTIVITY_AND_DEVICES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Auth type.
+        /// </summary>
+        internal static string USER_AUTH_TYPE_TITLE {
+            get {
+                return ResourceManager.GetString("USER_AUTH_TYPE_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Birthday.
+        /// </summary>
+        internal static string USER_BIRTHDAY {
+            get {
+                return ResourceManager.GetString("USER_BIRTHDAY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to City.
+        /// </summary>
+        internal static string USER_CITY {
+            get {
+                return ResourceManager.GetString("USER_CITY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Device.
+        /// </summary>
+        internal static string USER_DEVICE {
+            get {
+                return ResourceManager.GetString("USER_DEVICE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email.
+        /// </summary>
+        internal static string USER_EMAIL_TITLE {
+            get {
+                return ResourceManager.GetString("USER_EMAIL_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Banned.
+        /// </summary>
+        internal static string USER_IS_BANNED_TITLE {
+            get {
+                return ResourceManager.GetString("USER_IS_BANNED_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not banned.
+        /// </summary>
+        internal static string USER_IS_NOT_BANNED_TITLE {
+            get {
+                return ResourceManager.GetString("USER_IS_NOT_BANNED_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Offline.
+        /// </summary>
+        internal static string USER_IS_OFFLINE_TITLE {
+            get {
+                return ResourceManager.GetString("USER_IS_OFFLINE_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Online.
+        /// </summary>
+        internal static string USER_IS_ONLINE_TITLE {
+            get {
+                return ResourceManager.GetString("USER_IS_ONLINE_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last activity.
+        /// </summary>
+        internal static string USER_LAST_ACTIVITY_TITLE {
+            get {
+                return ResourceManager.GetString("USER_LAST_ACTIVITY_TITLE", resourceCulture);
             }
         }
         
@@ -398,6 +587,87 @@ namespace Frendy.CRM.Resources.Properties {
         internal static string USER_MENU_THEME_TITLE {
             get {
                 return ResourceManager.GetString("USER_MENU_THEME_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User information.
+        /// </summary>
+        internal static string USER_MODAL_TITLE {
+            get {
+                return ResourceManager.GetString("USER_MODAL_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        internal static string USER_NAME_TITLE {
+            get {
+                return ResourceManager.GetString("USER_NAME_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Phone number.
+        /// </summary>
+        internal static string USER_PHONE_NUMBER_TITLE {
+            get {
+                return ResourceManager.GetString("USER_PHONE_NUMBER_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Registration date.
+        /// </summary>
+        internal static string USER_REGISTRATION_DATE {
+            get {
+                return ResourceManager.GetString("USER_REGISTRATION_DATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Role.
+        /// </summary>
+        internal static string USER_ROLE_TITLE {
+            get {
+                return ResourceManager.GetString("USER_ROLE_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Username.
+        /// </summary>
+        internal static string USER_USERNAME {
+            get {
+                return ResourceManager.GetString("USER_USERNAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to year.
+        /// </summary>
+        internal static string USER_YEAR {
+            get {
+                return ResourceManager.GetString("USER_YEAR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to years.
+        /// </summary>
+        internal static string USER_YEARS {
+            get {
+                return ResourceManager.GetString("USER_YEARS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to years.
+        /// </summary>
+        internal static string USER_YEARS_SECOND_VARIANT {
+            get {
+                return ResourceManager.GetString("USER_YEARS_SECOND_VARIANT", resourceCulture);
             }
         }
     }

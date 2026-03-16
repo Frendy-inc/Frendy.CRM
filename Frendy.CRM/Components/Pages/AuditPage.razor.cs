@@ -1,6 +1,8 @@
-﻿using Frendy.CRM.Shared.Enums;
+﻿using Frendy.CRM.Shared;
+using Frendy.CRM.Shared.Enums;
 using Frendy.CRM.Shared.Extensions;
 using Frendy.Shared.Dto.RequestDto.AuditRequestDto;
+using Frendy.Shared.Extensions;
 
 namespace Frendy.CRM.Components.Pages;
 
@@ -95,13 +97,13 @@ public partial class AuditPage: CustomComponentBase
                     TableItemType.WithSubText
                 },
                 {
-                    [$"{auditDetail.ActionDate:MM.dd.yyyy hh:mm}"],
+                    [$"{auditDetail.ActionDate.GetStringDate(withTime: true)}"],
                     TableItemType.Text
                 },
                 {
                     [
                         $"{auditDetail.Action.GetLocalization(LocalizationService)}",
-                        auditDetail.Action.GetActionClass()
+                        auditDetail.Action.GetStyleClass()
                     ],
                     TableItemType.Status
                 },
@@ -109,5 +111,10 @@ public partial class AuditPage: CustomComponentBase
         }
         
         StateHasChanged();
+    }
+
+    private void ShowActionDetails(Guid actionId)
+    {
+        AppState.CallAuditDetails(actionId);
     }
 }

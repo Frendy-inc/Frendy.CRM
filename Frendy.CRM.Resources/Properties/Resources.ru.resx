@@ -33,16 +33,16 @@
     <data name="NAV_METRICS_TITLE" xml:space="preserve">
         <value>Метрики</value>
     </data>
-    <data name="HEADER_USER_ROLE" xml:space="preserve">
+    <data name="ROLE_USER" xml:space="preserve">
         <value>Пользователь</value>
     </data>
-    <data name="HEADER_SUPPORT_ROLE" xml:space="preserve">
+    <data name="ROLE_SUPPORT" xml:space="preserve">
         <value>Поддержка</value>
     </data>
-    <data name="HEADER_MODER_ROLE" xml:space="preserve">
+    <data name="ROLE_MODER" xml:space="preserve">
         <value>Модератор</value>
     </data>
-    <data name="HEADER_ADMIN_ROLE" xml:space="preserve">
+    <data name="ROLE_ADMIN" xml:space="preserve">
         <value>Администратор</value>
     </data>
     <data name="USER_MENU_GO_TO_PROFILE_TITLE" xml:space="preserve">
@@ -54,34 +54,34 @@
     <data name="USER_MENU_THEME_TITLE" xml:space="preserve">
         <value>Тема</value>
     </data>
-    <data name="TABLE_REGISTRATION_ACTION" xml:space="preserve">
+    <data name="ACTION_REGISTRATION" xml:space="preserve">
         <value>Регистрация</value>
     </data>
-    <data name="TABLE_AUTHORIZATION_ACTION" xml:space="preserve">
+    <data name="ACTION_AUTHORIZATION" xml:space="preserve">
         <value>Авторизация</value>
     </data>
-    <data name="TABLE_BLOCKING_ACTION" xml:space="preserve">
+    <data name="ACTION_BLOCKING" xml:space="preserve">
         <value>Блокировка пользователя</value>
     </data>
-    <data name="TABLE_UNBLOCKING_ACTION" xml:space="preserve">
+    <data name="ACTION_UNBLOCKING" xml:space="preserve">
         <value>Разблокировка пользователя</value>
     </data>
-    <data name="TABLE_PASS_CHANGE_ACTION" xml:space="preserve">
+    <data name="ACTION_PASS_CHANGE" xml:space="preserve">
         <value>Смена пароля</value>
     </data>
-    <data name="TABLE_PROFILE_UPDATE_ACTION" xml:space="preserve">
+    <data name="ACTION_PROFILE_UPDATE" xml:space="preserve">
         <value>Обновление профиля</value>
     </data>
-    <data name="TABLE_GET_USER_LIST_ACTION" xml:space="preserve">
+    <data name="ACTION_GET_USER_LIST" xml:space="preserve">
         <value>Получение списка пользователей</value>
     </data>
-    <data name="TABLE_CHANGE_ROLE_ACTION" xml:space="preserve">
+    <data name="ACTION_CHANGE_ROLE" xml:space="preserve">
         <value>Смена роли пользователя</value>
     </data>
-    <data name="TABLE_ADD_NEW_ACTION" xml:space="preserve">
+    <data name="ACTION_ADD_NEW" xml:space="preserve">
         <value>Добавление нового действия</value>
     </data>
-    <data name="TABLE_UPDATE_ACTION" xml:space="preserve">
+    <data name="ACTION_UPDATE" xml:space="preserve">
         <value>Обновление действия</value>
     </data>
     <data name="TABLE_PAGINATION_PREV" xml:space="preserve">
@@ -126,10 +126,100 @@
     <data name="AUDIT_MODAL_TARGET" xml:space="preserve">
         <value>Цель</value>
     </data>
-    <data name="AUDIT_MODAL_ACTION_TYPE" xml:space="preserve">
-        <value>Тип действия</value>
+    <data name="AUDIT_MODAL_ACTION_INFO" xml:space="preserve">
+        <value>Информация о действии</value>
     </data>
     <data name="NOTIFY_CLIPBOARD" xml:space="preserve">
         <value>Скопировано в буфер обмена!</value>
+    </data>
+    <data name="TABLE_NO_SPECIFIED" xml:space="preserve">
+        <value>Не указано</value>
+    </data>
+    <data name="AUTH_TYPE_EMAIL" xml:space="preserve">
+        <value>Email</value>
+    </data>
+    <data name="AUTH_TYPE_YANDEX" xml:space="preserve">
+        <value>Яндекс</value>
+    </data>
+    <data name="AUTH_TYPE_VK" xml:space="preserve">
+        <value>ВКонтакте</value>
+    </data>
+    <data name="AUTH_TYPE_PHONE_NUMBER" xml:space="preserve">
+        <value>Номер телефона</value>
+    </data>
+    <data name="USER_LAST_ACTIVITY_TITLE" xml:space="preserve">
+        <value>Последняя активность</value>
+    </data>
+    <data name="USER_PHONE_NUMBER_TITLE" xml:space="preserve">
+        <value>Номер телефона</value>
+    </data>
+    <data name="USER_EMAIL_TITLE" xml:space="preserve">
+        <value>Email</value>
+    </data>
+    <data name="USER_IS_ONLINE_TITLE" xml:space="preserve">
+        <value>Онлайн</value>
+    </data>
+    <data name="USER_IS_BANNED_TITLE" xml:space="preserve">
+        <value>Заблокирован</value>
+    </data>
+    <data name="USER_AUTH_TYPE_TITLE" xml:space="preserve">
+        <value>Тип авторизации</value>
+    </data>
+    <data name="FALSE_STATUS" xml:space="preserve">
+        <value>Нет</value>
+    </data>
+    <data name="TRUE_STATUS" xml:space="preserve">
+        <value>Да</value>
+    </data>
+    <data name="USER_MODAL_TITLE" xml:space="preserve">
+        <value>Информация о пользователе</value>
+    </data>
+    <data name="USER_BIRTHDAY" xml:space="preserve">
+        <value>Дата рождения</value>
+    </data>
+    <data name="USER_REGISTRATION_DATE" xml:space="preserve">
+        <value>Дата регистрации</value>
+    </data>
+    <data name="USER_YEARS" xml:space="preserve">
+        <value>лет</value>
+    </data>
+    <data name="USER_YEAR" xml:space="preserve">
+        <value>год</value>
+    </data>
+    <data name="USER_YEARS_SECOND_VARIANT" xml:space="preserve">
+        <value>года</value>
+    </data>
+    <data name="CONTACT_INFORMATION" xml:space="preserve">
+        <value>Контактная информация</value>
+    </data>
+    <data name="STATUS" xml:space="preserve">
+        <value>Статус</value>
+    </data>
+    <data name="USER_IS_NOT_BANNED_TITLE" xml:space="preserve">
+        <value>Не заблокирован</value>
+    </data>
+    <data name="USER_IS_OFFLINE_TITLE" xml:space="preserve">
+        <value>Не в сети</value>
+    </data>
+    <data name="USER_ACTIVITY_AND_DEVICES" xml:space="preserve">
+        <value>Активность и устройство</value>
+    </data>
+    <data name="USER_CITY" xml:space="preserve">
+        <value>Город</value>
+    </data>
+    <data name="USER_DEVICE" xml:space="preserve">
+        <value>Устройство</value>
+    </data>
+    <data name="USER_ROLE_TITLE" xml:space="preserve">
+        <value>Роль</value>
+    </data>
+    <data name="USER_NAME_TITLE" xml:space="preserve">
+        <value>Имя</value>
+    </data>
+    <data name="ACTION_DESCRIPTION" xml:space="preserve">
+        <value>Пояснение</value>
+    </data>
+    <data name="USER_USERNAME" xml:space="preserve">
+        <value>Имя пользователя</value>
     </data>
 </root>

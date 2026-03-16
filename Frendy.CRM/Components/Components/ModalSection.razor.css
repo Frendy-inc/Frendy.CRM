@@ -1,0 +1,5 @@
+﻿.modal-section {
+    gap: 0.5rem;
+    display: flex;
+    flex-direction: column;
+}

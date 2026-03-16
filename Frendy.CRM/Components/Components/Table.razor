@@ -30,7 +30,7 @@
                     @foreach (var (bodyLine, index) in Body.Select((item, index)
                                   => (item, index + (CurrentPage * PageSize) - PageSize)))
                     {
-                        <tr @onclick="@(() => NavigateToAudit(Guid.Parse(bodyLine.Keys.First()[0])))" 
+                        <tr @onclick="@(() => ShowItemAsync(Guid.Parse(bodyLine.Keys.First()[0])))" 
                             class="body-content @(index % 2 == 0 ? "light" : "dark")">
                             <th class="body-item" scope="row"><span>@(index + 1)</span></th>
                             @foreach (var item in bodyLine)
@@ -53,6 +53,15 @@
                                             <span class="status @item.Key[1] bg">@item.Key[0]</span>
                                         </td>
                                         break;
+                                    case TableItemType.Bool:
+                                        <td class="body-item">
+                                            <span class="status @(bool.Parse(item.Key[0]) ? "positive" : "negative") bg">
+                                                @(bool.Parse(item.Key[0]) 
+                                                    ? LocalizationService.GetString("TRUE_STATUS") 
+                                                    : LocalizationService.GetString("FALSE_STATUS"))
+                                            </span>
+                                        </td>
+                                        break;
                                 }
                             }
                         </tr>
@@ -66,7 +75,7 @@
         <div class="grid-view">
             @foreach (var bodyLine in Body)
             {
-                <div class="grid-content" @onclick="@(() => NavigateToAudit(Guid.Parse(bodyLine.Keys.First()[0])))">
+                <div class="grid-content" @onclick="@(() => ShowItemAsync(Guid.Parse(bodyLine.Keys.First()[0])))">
                     @foreach (var (item, itemIndex) in bodyLine.Select((item, itemIndex) => (item, itemIndex)))
                     {
                         if (itemIndex < 1) continue;
@@ -92,7 +101,16 @@
                                         width: -webkit-fill-available;
                                         display: flex;
                                         justify-content: center;
-                                        align-items: center;">@item.Key[0]
+                                        align-items: center;">@item.Key[0]</span>
+                                </div>
+                                break;
+                            case TableItemType.Bool:
+                                <div class="grid-item">
+                                    <span>@HeadTitles[itemIndex]:</span>
+                                    <span class="status @(bool.Parse(item.Key[0]) ? "positive" : "negative") bg">
+                                        @(bool.Parse(item.Key[0]) 
+                                            ? LocalizationService.GetString("TRUE_STATUS") 
+                                            : LocalizationService.GetString("FALSE_STATUS"))
                                     </span>
                                 </div>
                                 break;

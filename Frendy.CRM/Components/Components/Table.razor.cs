@@ -31,6 +31,9 @@ public partial class Table : CustomComponentBase
     [Parameter]
     public EventCallback<string> OnSearchValueChanged { get; set; }
     
+    [Parameter]
+    public EventCallback<Guid> OnItemClick { get; set; }
+    
     [Inject]
     private NavigationManager NavigationManager { get; set; } = null!;
 
@@ -67,9 +70,10 @@ public partial class Table : CustomComponentBase
             await OnSearchValueChanged.InvokeAsync(value);
     }
     
-    private void NavigateToAudit(Guid id)
+    private async Task ShowItemAsync(Guid id)
     {
-        AppState.CallAuditDetails(id);
+        if (OnItemClick.HasDelegate)
+            await OnItemClick.InvokeAsync(id);
     }
     
 }

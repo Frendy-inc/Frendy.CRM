@@ -10,10 +10,10 @@ public static class EnumExtensions
     {
         return role switch
         {
-            UserRole.User => localizationService.GetString("HEADER_USER_ROLE"),
-            UserRole.Administrator => localizationService.GetString("HEADER_ADMIN_ROLE"),
-            UserRole.Moderator => localizationService.GetString("HEADER_MODER_ROLE"),
-            UserRole.Support => localizationService.GetString("HEADER_SUPPORT_ROLE"),
+            UserRole.User => localizationService.GetString("ROLE_USER"),
+            UserRole.Administrator => localizationService.GetString("ROLE_ADMIN"),
+            UserRole.Moderator => localizationService.GetString("ROLE_MODER"),
+            UserRole.Support => localizationService.GetString("ROLE_SUPPORT"),
             _ => role.ToString()
         };
     }
@@ -22,21 +22,33 @@ public static class EnumExtensions
     {
         return action switch
         {
-            Action.Registration => localizationService.GetString("TABLE_REGISTRATION_ACTION"),
-            Action.Authorization => localizationService.GetString("TABLE_AUTHORIZATION_ACTION"),
-            Action.BlockingTheUser => localizationService.GetString("TABLE_BLOCKING_ACTION"),
-            Action.UnblockingTheUser => localizationService.GetString("TABLE_UNBLOCKING_ACTION"),
-            Action.PasswordChange => localizationService.GetString("TABLE_PASS_CHANGE_ACTION"),
-            Action.ProfileUpdate => localizationService.GetString("TABLE_PROFILE_UPDATE_ACTION"),
-            Action.GettingUserList => localizationService.GetString("TABLE_GET_USER_LIST_ACTION"),
-            Action.ChangingTheUsersRole => localizationService.GetString("TABLE_CHANGE_ROLE_ACTION"),
-            Action.AddingNewAction => localizationService.GetString("TABLE_ADD_NEW_ACTION"),
-            Action.ActionUpdate => localizationService.GetString("TABLE_UPDATE_ACTION"),
+            Action.Registration => localizationService.GetString("ACTION_REGISTRATION"),
+            Action.Authorization => localizationService.GetString("ACTION_AUTHORIZATION"),
+            Action.BlockingTheUser => localizationService.GetString("ACTION_BLOCKING"),
+            Action.UnblockingTheUser => localizationService.GetString("ACTION_UNBLOCKING"),
+            Action.PasswordChange => localizationService.GetString("ACTION_PASS_CHANGE"),
+            Action.ProfileUpdate => localizationService.GetString("ACTION_PROFILE_UPDATE"),
+            Action.GettingUserList => localizationService.GetString("ACTION_GET_USER_LIST"),
+            Action.ChangingTheUsersRole => localizationService.GetString("ACTION_CHANGE_ROLE"),
+            Action.AddingNewAction => localizationService.GetString("ACTION_ADD_NEW"),
+            Action.ActionUpdate => localizationService.GetString("ACTION_UPDATE"),
             _ => action.ToString()
         };
     }
 
-    public static string GetActionClass(this Action action)
+    public static string GetLocalization(this AuthType authType, ILocalizationService localizationService)
+    {
+        return authType switch
+        {
+            AuthType.Email => localizationService.GetString("AUTH_TYPE_EMAIL"),
+            AuthType.PhoneNumber => localizationService.GetString("AUTH_TYPE_PHONE_NUMBER"),
+            AuthType.Vk => localizationService.GetString("AUTH_TYPE_VK"),
+            AuthType.Yandex => localizationService.GetString("AUTH_TYPE_YANDEX"),
+            _ => authType.ToString()
+        };
+    }
+
+    public static string GetStyleClass(this Action action)
     {
         return action switch
         {
@@ -51,6 +63,18 @@ public static class EnumExtensions
             Action.AddingNewAction => "positive",
             Action.ActionUpdate => "neutral",
             _ => action.ToString()
+        };
+    }
+
+    public static string GetStyleClass(this AuthType authType)
+    {
+        return authType switch
+        {
+            AuthType.Email => "positive",
+            AuthType.PhoneNumber => "purple",
+            AuthType.Vk => "blue",
+            AuthType.Yandex => "negative",
+            _ => authType.ToString()
         };
     }
 }

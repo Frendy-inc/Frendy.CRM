@@ -2,8 +2,10 @@
 
 public enum IconSize 
 {
-    Small,
-    Medium,
-    Large,
-    VeryLarge
+    S,
+    M,
+    L,
+    XL,
+    XXL,
+    XXXL,
 }

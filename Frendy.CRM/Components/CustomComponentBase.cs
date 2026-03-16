@@ -1,4 +1,5 @@
 ﻿using Frendy.CRM.Services.Interfaces;
+using Frendy.CRM.Shared;
 using Frendy.Shared.Interfaces;
 using Microsoft.AspNetCore.Components;
 
@@ -14,6 +15,9 @@ public abstract class CustomComponentBase: ComponentBase, IDisposable
     
     [Inject]
     public IJsRuntimeService JsRuntime { get; set; } = null!;
+    
+    [Inject]
+    public AppState AppState { get; set; } = null!;
     
     protected override async Task OnInitializedAsync()
     {

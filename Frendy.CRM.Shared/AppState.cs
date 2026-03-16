@@ -3,51 +3,69 @@ using Frendy.CRM.Shared.Models;
 
 namespace Frendy.CRM.Shared;
 
-public static class AppState
+public class AppState
 {
     #region Events
 
-    public static EventHandler<bool>? OnLoadingStateChanged;
-    public static EventHandler<NotificationDetails>? OnNotificationCalled;
+    public EventHandler<bool>? OnLoadingStateChanged;
+    public EventHandler<NotificationDetails>? OnNotificationCalled;
 
     #endregion
     
     #region Fields
     
-    public static bool LoadingState { get; private set; }
-    public static NotificationDetails NotificationDetails { get; set; } = new();
-    public static Guid ActionDetailsId { get; set; }
-    public static bool ActionModalState { get; set; }
+    public bool LoadingState { get; private set; }
+    public NotificationDetails NotificationDetails { get; set; } = new();
+    public Guid ActionDetailsId { get; private set; }
+    public bool ActionModalState { get; private set; }
+    public Guid UserDetailsId { get; private set; }
+    public bool UserModalState { get; private set; }
     
     #endregion
     
     #region Methods
     
-    public static void ChangeLoadingState(bool isLoading)
+    public void ChangeLoadingState(bool isLoading)
     {
         LoadingState = isLoading;
         OnLoadingStateChanged?.Invoke(null, isLoading);
     }
     
-    public static async Task CallNotificationAsync(NotificationDetails notificationDetails)
+    public async Task CallNotificationAsync(string message, NotificationType type, bool show = false)
     {
-        NotificationDetails = notificationDetails;
-        OnNotificationCalled?.Invoke(null, notificationDetails);
+        NotificationDetails = new NotificationDetails
+        {
+            Message = message,
+            Type = type,
+            Show = show
+        };
+        OnNotificationCalled?.Invoke(null, NotificationDetails);
         
         await Task.Delay(3000);
         
         NotificationDetails.Show = false;
     }
 
-    public static void CallAuditDetails(Guid actionId)
+    public void CallAuditDetails(Guid actionId)
     {
         ActionDetailsId = actionId;
         ActionModalState = true;
     }
 
-    public static void CloseAuditModal()
+    public void CloseAuditModal()
     {
         ActionModalState = false;
+    } 
+
+    public void CallUserDetails(Guid userId)
+    {
+        UserDetailsId = userId;
+        UserModalState = true;
+    }
+
+    public void CloseUserModal()
+    {
+        UserModalState = false;
     } 
     
     #endregion

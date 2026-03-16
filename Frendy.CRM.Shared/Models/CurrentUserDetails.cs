@@ -10,4 +10,5 @@ public class CurrentUserDetails
     public string? Email { get; set; }
     public string UserName { get; set; } = null!;
     public UserRole Role { get; set; }
+    public string? Avatar { get; set; }
 }

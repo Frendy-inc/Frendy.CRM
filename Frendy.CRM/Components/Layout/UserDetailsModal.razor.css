@@ -1,0 +1,33 @@
+﻿.modal-person-info, .modal-person-info-name-container, .modal-person-status, .modal-person-info-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+}
+
+.modal-person-info-name-container,
+.modal-person-status {
+    gap: 1rem;
+}
+
+.modal-person-avatar {
+    width: fit-content;
+    height: fit-content;
+}
+
+.modal-person-info, .modal-person-info-container {
+    gap: 2rem;
+}
+
+.modal-person-info {
+    justify-content: space-between;
+}
+
+.modal-person-info-name, .modal-section-item, .modal-section {
+    gap: 0.5rem;
+}
+
+.modal-person-info-name, .modal-section-item, .modal-section {
+    display: flex;
+    flex-direction: column;
+}

@@ -1,11 +1,12 @@
 ﻿@using Frendy.CRM.Components.Buttons
 @using Frendy.CRM.Components.Components
 @using Frendy.CRM.Shared.Enums
+@using Frendy.Shared.Extensions
 @inherits CustomComponentBase
 
 <div class="header-content">
     <div class="burger-content">
-        <IconButton Icon="Icons.Burger" Size="IconSize.Medium" Color="var(--title-text-color)" OnClick="@OnBurgerClicked" />
+        <IconButton Icon="Icons.Burger" Size="IconSize.M" Color="var(--title-text-color)" OnClick="@OnBurgerClicked" />
     </div>
 
     <div class="crm-info">
@@ -19,8 +20,15 @@
             <span class="user-role">@Role</span>
         </div>
         <div class="user-menu">
-            <Icon IconType="Icons.UserAvatar" Size="IconSize.VeryLarge" Color="var(--title-text-color)" />
-            <IconButton Icon="Icons.DownArrow" Size="IconSize.Small" Color="var(--title-text-color)" OnClick="@OnExpandClicked" />
+            @if (!Avatar.IsNullOrEmpty())
+            {
+                <Icon IconUrl="@Avatar" Size="IconSize.XL" Style="border-radius: 32rem;"/>
+            }
+            else
+            {
+                <Icon IconType="Icons.UserAvatar" Size="IconSize.XL" Color="var(--title-text-color)"/>
+            }
+            <IconButton Icon="Icons.DownArrow" Size="IconSize.S" Color="var(--title-text-color)" OnClick="@OnExpandClicked"/>
         </div>
     </div>
 </div>
