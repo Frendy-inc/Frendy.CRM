@@ -1,3 +1,17 @@
-﻿@inherits CustomComponentBase
+﻿@page "/staff"
+@using Frendy.CRM.Components.Components
+@inherits TableComponent<Frendy.Shared.Dto.RequestDto.StaffRequestDto.GetStaffsRequestDto, Frendy.CRM.Shared.Models.StaffShortDetails, Frendy.CRM.Shared.Models.StaffShortDetailsLookup>
 
-@page "/staff"
+<PageContainer>
+    <Table
+        HeadTitles="HeadTitles" 
+        Body="Body" 
+        TotalCount="@TotalCount" 
+        PageSize="@PageSize" 
+        CurrentPage="CurrentPage" 
+        OnPageChanged="OnPageChanged"
+        OnPageSizeChanged="OnPageSizeChanged"
+        OnSearchValueChanged="OnSearchValueChanged"
+        OnItemClick="OpenDialog">
+    </Table>
+</PageContainer>

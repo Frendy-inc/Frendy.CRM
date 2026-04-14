@@ -14,20 +14,24 @@
     flex-direction: row;
     text-decoration: none;
     padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    --btn-color: var(--block-color);
+    --btn-hover: color-mix(in srgb, var(--btn-color), white 10%);
+    --btn-active: color-mix(in srgb, var(--btn-color), black 10%);
+
+    background: var(--btn-color);
     
     &.active {
-        background: var(--active-color);
+        background: var(--btn-active);
     }
 }
 
-.text-button-container:hover:not(.disabled)
-{
-    background: var(--hover-color);
+.text-button-container:hover:not(.disabled) {
+    background: var(--btn-hover);
 }
 
-.text-button-container:active:not(.disabled)
-{
-    background: var(--active-color);
+.text-button-container:active:not(.disabled) {
+    background: var(--btn-active);
 }
 
 .text-button-container.disabled {

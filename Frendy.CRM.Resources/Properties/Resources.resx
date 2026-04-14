@@ -222,4 +222,28 @@
     <data name="USER_USERNAME" xml:space="preserve">
         <value>Username</value>
     </data>
+    <data name="USER_ROLE_ASSIGNER" xml:space="preserve">
+        <value>Assigner</value>
+    </data>
+    <data name="USER_ROLE_ASSIGN_DATE" xml:space="preserve">
+        <value>Date of assign</value>
+    </data>
+    <data name="STAFF_MODAL_TITLE" xml:space="preserve">
+        <value>Staff information</value>
+    </data>
+    <data name="CONFIRM_MODAL_TRUE" xml:space="preserve">
+        <value>Agree</value>
+    </data>
+    <data name="CONFIRM_MODAL_FALSE" xml:space="preserve">
+        <value>Cancel</value>
+    </data>
+    <data name="CONFIRM_MODAL_TITLE" xml:space="preserve">
+        <value>Confirm the action</value>
+    </data>
+    <data name="STAFF_CONFIRM_MODAL_MESSAGE" xml:space="preserve">
+        <value>Do you really want to demote an employee {0} {1} from the role {2}?</value>
+    </data>
+    <data name="NOTIFY_STAFF_DEMOTED" xml:space="preserve">
+        <value>The user has been successfully demoted!</value>
+    </data>
 </root>

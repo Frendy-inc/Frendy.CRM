@@ -1,13 +1,20 @@
-﻿.notify {
+﻿.notify-stack {
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 1rem;
+    z-index: 9999;
+}
+
+.notify {
     background-color: var(--block-color);
     backdrop-filter: blur(25px);
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
     border-radius: 1rem;
     padding: 0.5rem 1rem;
     z-index: 9999;
-    position: fixed;
-    left: 2rem;
-    top: 2rem;
     display: flex;
     gap: 2rem;
     flex-direction: row;
@@ -16,7 +23,7 @@
     transform: translateY(-150%);
     opacity: 0;
     transition: transform 0.4s ease, opacity 0.4s ease;
-    
+
     &.show {
         transform: translateY(0);
         opacity: 1;
@@ -33,17 +40,17 @@
 .notify-content-icon {
     padding: 0.5rem;
     border-radius: 1rem;
-    
+
     &.positive {
         background-color: var(--positive-secondary-color);
         box-shadow: 0 0 10px 0 rgb(91, 195, 100, 0.15);
     }
-    
+
     &.neutral {
         background-color: var(--neutral-secondary-color);
         box-shadow: 0 0 10px 0 rgba(250, 184, 91, 0.15);
     }
-    
+
     &.negative {
         background-color: var(--negative-secondary-color);
         box-shadow: 0 0 10px 0 rgba(222, 108, 108, 0.15);

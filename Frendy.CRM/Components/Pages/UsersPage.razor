@@ -1,8 +1,8 @@
 ﻿@page "/users"
 @using Frendy.CRM.Components.Components
-@inherits CustomComponentBase
+@inherits TableComponent<Frendy.Shared.Dto.RequestDto.UserRequestDto.GetUsersRequestDto, Frendy.CRM.Shared.Models.UserShortDetails, Frendy.CRM.Shared.Models.UserShortDetailsLookup>
 
-<div class="page-container">
+<PageContainer>
     <Table 
         HeadTitles="HeadTitles" 
         Body="Body" 
@@ -12,6 +12,6 @@
         OnPageChanged="OnPageChanged"
         OnPageSizeChanged="OnPageSizeChanged"
         OnSearchValueChanged="OnSearchValueChanged"
-        OnItemClick="ShowUserDetails">
+        OnItemClick="OpenDialog">
     </Table>
-</div>
+</PageContainer>

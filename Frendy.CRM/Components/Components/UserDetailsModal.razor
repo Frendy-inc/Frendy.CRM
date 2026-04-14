@@ -1,0 +1,59 @@
+﻿@using Frendy.CRM.Shared.Enums
+@using Frendy.CRM.Shared.Extensions
+@using Frendy.Shared.Extensions
+@inherits CustomComponentBase
+
+<CopyField Label="@LocalizationService.GetString("AUDIT_MODAL_ID")" Value="@Model!.Id.ToString()"/>
+<PersonCard AvatarUrl="@Model.Avatar" FirstName="@Model.FirstName" LastName="@Model.LastName" 
+            Role="@Model.Role" Username="@Model.Username" IsOnline="@Model.IsOnline" IsBanned="@Model.IsBanned"/>
+<hr class="horizontal"/>
+<Section>
+    <IconLabelTitle Icon="Icons.Phone" Size="IconSize.M" Text="@LocalizationService.GetString("CONTACT_INFORMATION")"/>
+    <Row>
+        <Column>
+            <IconLabelValue Icon="Icons.Email" Size="IconSize.S" Color="var(--unfocus-color)"
+                            Label="@LocalizationService.GetString("USER_EMAIL_TITLE")"
+                            Value="@(Model.Email ?? LocalizationService.GetString("TABLE_NO_SPECIFIED"))"/>
+            <IconLabelValue Icon="Icons.Phone" Size="IconSize.S" Color="var(--unfocus-color)"
+                            Label="@LocalizationService.GetString("USER_PHONE_NUMBER_TITLE")"
+                            Value="@(!Model.PhoneNumber.IsNullOrEmpty() ? Model.PhoneNumber!.FormatPhone() : LocalizationService.GetString("TABLE_NO_SPECIFIED"))"/>
+            <IconLabelValue Icon="Icons.Key" Size="IconSize.S" Color="var(--unfocus-color)"
+                            Label="@LocalizationService.GetString("USER_AUTH_TYPE_TITLE")"
+                            Value="@Model.AuthType.GetLocalization(LocalizationService)"
+                            ValueClass=@($"status {Model.AuthType.GetStyleClass()} bg")/>
+        </Column>
+        <hr class="vertical"/>
+        <Column>
+            <IconLabelValue Icon="Icons.Date" Size="IconSize.S" Color="var(--unfocus-color)"
+                            Label="@LocalizationService.GetString("USER_BIRTHDAY")"
+                            Value="@Model.Birthday.GetStringDate()"
+                            Description="@($"({GetAge()} {GetYearsText()})")"/>
+            <IconLabelValue Icon="Icons.Date" Size="IconSize.S" Color="var(--unfocus-color)"
+                            Label="@LocalizationService.GetString("USER_REGISTRATION_DATE")"
+                            Value="@Model.CreatedAt.GetStringDate(withTime: true)"/>
+        </Column>
+    </Row>
+</Section>
+<hr class="horizontal"/>
+<Section>
+    <IconLabelTitle Icon="Icons.Computer" Size="IconSize.M" Text="@LocalizationService.GetString("USER_ACTIVITY_AND_DEVICES")"/>
+    <Row>
+        <Column>
+            <IconLabelValue Icon="Icons.Clock" Size="IconSize.S" Color="var(--unfocus-color)"
+                            Label="@LocalizationService.GetString("USER_LAST_ACTIVITY_TITLE")"
+                            Value="@Model.LastActivity.GetStringDate(withTime: true)"/>
+            <IconLabelValue Icon="Icons.Computer" Size="IconSize.S" Color="var(--unfocus-color)"
+                            Label="@LocalizationService.GetString("USER_DEVICE")"
+                            Value="@Model.DeviceName"/>
+        </Column>
+        <hr class="vertical"/>
+        <Column>
+            <IconLabelValue Icon="Icons.Map" Size="IconSize.S" Color="var(--unfocus-color)"
+                            Label="@LocalizationService.GetString("USER_CITY")"
+                            Value="@Model.City"/>
+            <IconLabelValue Icon="Icons.Network" Size="IconSize.S" Color="var(--unfocus-color)"
+                            Label="IP"
+                            Value="@Model.IpAddress"/>
+        </Column>
+    </Row>
+</Section>

@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
 using Microsoft.AspNetCore.Components;
 
-namespace Frendy.CRM.Components.Layout;
+namespace Frendy.CRM.Components.Components;
 
 public partial class UserMenu: CustomComponentBase
 {

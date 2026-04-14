@@ -1,31 +1,17 @@
-﻿using Frendy.CRM.Shared;
+﻿using Frendy.CRM.Components.Components;
+using Frendy.CRM.Components.Layout;
 using Frendy.CRM.Shared.Enums;
 using Frendy.CRM.Shared.Extensions;
+using Frendy.CRM.Shared.Models;
 using Frendy.Shared.Dto.RequestDto.UserRequestDto;
 using Frendy.Shared.Extensions;
 
 namespace Frendy.CRM.Components.Pages;
 
-public partial class UsersPage: CustomComponentBase
+public partial class UsersPage: TableComponent<GetUsersRequestDto, UserShortDetails, UserShortDetailsLookup>
 {
-    public readonly List<string> HeadTitles = [];
-    
-    public List<Dictionary<string[], TableItemType>> Body { get; } = [];
-    
-    public int TotalCount { get; set; }
-
-    public int PageSize = 20;
-    
-    public int CurrentPage { get; set; }
-
     protected override async Task OnInitializedAsync()
     {
-        await GetUsersAsync(new GetUsersRequestDto
-        {
-            PageSize = PageSize,
-            From = 0,
-        });
-        
         HeadTitles.Add(LocalizationService.GetString("TABLE_ID_TITLE"));
         HeadTitles.Add(LocalizationService.GetString("TABLE_NAME_TITLE"));
         HeadTitles.Add(LocalizationService.GetString("USER_LAST_ACTIVITY_TITLE"));
@@ -35,99 +21,103 @@ public partial class UsersPage: CustomComponentBase
         HeadTitles.Add(LocalizationService.GetString("USER_IS_BANNED_TITLE"));
         HeadTitles.Add(LocalizationService.GetString("USER_AUTH_TYPE_TITLE"));
         
-        await base.OnInitializedAsync();
+        await LoaderService.RunAsync(async () => await LoadAsync(new GetUsersRequestDto
+        {
+            PageSize = PageSize,
+            From = 0
+        }));
     }
+    
+    protected override Task<UserShortDetails> FetchDataAsync(GetUsersRequestDto request)
+        => Client.GetUsersAsync(request);
 
-    public async Task OnPageChanged(int from)
+    protected override Dictionary<string[], TableItemType> MapItem(UserShortDetailsLookup item)
     {
-        await GetUsersAsync(new GetUsersRequestDto
+        return new Dictionary<string[], TableItemType>
+        {
+            {
+                [item.Id.ToString()],
+                TableItemType.Text
+            },
+            {
+                [
+                    $"{item.LastName} {item.FirstName[0]}",
+                    item.Role.GetLocalization(LocalizationService)
+                ],
+                TableItemType.WithSubText
+            },
+            {
+                [item.LastActivity.GetStringDate(withTime: true)],
+                TableItemType.Text
+            },
+            {
+                [!item.PhoneNumber.IsNullOrEmpty() ? item.PhoneNumber!.FormatPhone() 
+                    : LocalizationService.GetString("TABLE_NO_SPECIFIED")],
+                TableItemType.Text
+            },
+            {
+                [item.Email ?? LocalizationService.GetString("TABLE_NO_SPECIFIED")],
+                TableItemType.Text
+            },
+            {
+                [item.IsBanned.ToString()],
+                TableItemType.Bool
+            },
+            {
+                [item.IsOnline.ToString()],
+                TableItemType.Bool
+            },
+            {
+                [
+                    $"{item.AuthType.GetLocalization(LocalizationService)}",
+                    item.AuthType.GetStyleClass()
+                ],
+                TableItemType.Status
+            }
+        };
+    }
+    protected override async Task OnPageChanged(int from)
+    {
+        await LoaderService.RunAsync(async () => await LoadAsync(new GetUsersRequestDto
         {
             PageSize = PageSize,
             From = from
-        });
-        StateHasChanged();
+        }));
+        
+        await InvokeAsync(StateHasChanged);
     }
-    
-    public async Task OnPageSizeChanged(int size)
+
+    protected override async Task OnPageSizeChanged(int size)
     {
-        await GetUsersAsync(new GetUsersRequestDto
+        await LoaderService.RunAsync(async () => await LoadAsync(new GetUsersRequestDto
         {
-            PageSize = size,
+            PageSize = size, 
             From = 0
-        });
-        StateHasChanged();
+        })); 
+        
+        await InvokeAsync(StateHasChanged);
     }
-    
-    public async Task OnSearchValueChanged(string value)
+
+    protected override async Task OnSearchValueChanged(string value)
     {
-        await GetUsersAsync(new GetUsersRequestDto
+        await LoaderService.RunAsync(async () => await LoadAsync(new GetUsersRequestDto
         {
             Search = value,
             PageSize = PageSize,
-            From = 0
-        });
-        StateHasChanged();
-    }
-    
-    private async Task GetUsersAsync(GetUsersRequestDto requestDto)
-    {
-        var users = await Client.GetUsersAsync(requestDto);
-
-        TotalCount = users.TotalCount;
-        CurrentPage = users.Page;
-
-        Body.Clear();
-        foreach (var userDetail in users.Details)
-        {
-            Body.Add(new Dictionary<string[], TableItemType>
-            {
-                {
-                    [userDetail.Id.ToString()],
-                    TableItemType.Text
-                },
-                {
-                    [
-                        $"{userDetail.LastName} {userDetail.FirstName[0]}",
-                        userDetail.Role.GetLocalization(LocalizationService)
-                    ],
-                    TableItemType.WithSubText
-                },
-                {
-                    [userDetail.LastActivity.GetStringDate(withTime: true)],
-                    TableItemType.Text
-                },
-                {
-                    [!userDetail.PhoneNumber.IsNullOrEmpty() ? userDetail.PhoneNumber!.FormatPhone() 
-                        : LocalizationService.GetString("TABLE_NO_SPECIFIED")],
-                    TableItemType.Text
-                },
-                {
-                    [userDetail.Email ?? LocalizationService.GetString("TABLE_NO_SPECIFIED")],
-                    TableItemType.Text
-                },
-                {
-                    [userDetail.IsBanned.ToString()],
-                    TableItemType.Bool
-                },
-                {
-                    [userDetail.IsOnline.ToString()],
-                    TableItemType.Bool
-                },
-                {
-                    [
-                        $"{userDetail.AuthType.GetLocalization(LocalizationService)}",
-                        userDetail.AuthType.GetStyleClass()
-                    ],
-                    TableItemType.Status
-                }
-            });
-        }
+            From = 0 
+        })); 
         
-        StateHasChanged();
+        await InvokeAsync(StateHasChanged);
     }
 
-    private void ShowUserDetails(Guid userId)
+    protected override async Task OpenDialog(Guid guid)
     {
-        AppState.CallUserDetails(userId);
+        var data = await LoaderService.RunAsync(async () => await Client.GetUserDetailsAsync(guid));
+        
+        await ModalService.OpenAsync<UserDetailsModal, bool>(new Dictionary<string, object>
+        {
+            ["Model"] = data,
+            ["Title"] = LocalizationService.GetString("USER_MODAL_TITLE")
+        });
     }
 }

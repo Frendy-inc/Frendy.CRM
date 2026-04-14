@@ -39,12 +39,8 @@ public partial class Table : CustomComponentBase
 
     private bool _isRowView = true;
     
-    public int PagesCount { get; set; }
-
-    protected override void OnInitialized()
-    {
-        PagesCount = (int)Math.Ceiling((double)TotalCount / PageSize);
-    }
+    public int PagesCount =>
+        (int)Math.Ceiling((double)TotalCount / PageSize);
     
     private async Task HandleClickAsync(int pageNumber)
     {

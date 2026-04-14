@@ -12,5 +12,8 @@ public static class DependencyInjection
         services.AddScoped<IClient, DemoClient>();
         services.AddScoped<IJsRuntimeService, JsRuntimeService>();
         services.AddScoped<ILocalizationService, LocalizationService>();
+        services.AddScoped<ModalService>();
+        services.AddScoped<NotificationService>();
+        services.AddScoped<LoaderService>();
     }
 }

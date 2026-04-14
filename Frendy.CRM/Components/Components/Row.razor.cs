@@ -2,7 +2,7 @@
 
 namespace Frendy.CRM.Components.Components;
 
-public partial class ModalSection : ComponentBase
+public partial class Row : ComponentBase
 {
     [Parameter] 
     public RenderFragment? ChildContent { get; set; }
