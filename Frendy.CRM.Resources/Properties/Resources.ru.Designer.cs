@@ -249,6 +249,33 @@ namespace Frendy.CRM.Resources.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Отменить.
+        /// </summary>
+        internal static string CONFIRM_MODAL_FALSE {
+            get {
+                return ResourceManager.GetString("CONFIRM_MODAL_FALSE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Подтвердите действие.
+        /// </summary>
+        internal static string CONFIRM_MODAL_TITLE {
+            get {
+                return ResourceManager.GetString("CONFIRM_MODAL_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Подтвердить.
+        /// </summary>
+        internal static string CONFIRM_MODAL_TRUE {
+            get {
+                return ResourceManager.GetString("CONFIRM_MODAL_TRUE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Контактная информация.
         /// </summary>
         internal static string CONTACT_INFORMATION {
@@ -321,6 +348,15 @@ namespace Frendy.CRM.Resources.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Пользователь успешно разжалован!.
+        /// </summary>
+        internal static string NOTIFY_STAFF_DEMOTED {
+            get {
+                return ResourceManager.GetString("NOTIFY_STAFF_DEMOTED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Администратор.
         /// </summary>
         internal static string ROLE_ADMIN {
@@ -353,6 +389,24 @@ namespace Frendy.CRM.Resources.Properties {
         internal static string ROLE_USER {
             get {
                 return ResourceManager.GetString("ROLE_USER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Вы действительно хотите разжаловать сотрудника {0} {1} с роли {2}?.
+        /// </summary>
+        internal static string STAFF_CONFIRM_MODAL_MESSAGE {
+            get {
+                return ResourceManager.GetString("STAFF_CONFIRM_MODAL_MESSAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Информация о сотруднике.
+        /// </summary>
+        internal static string STAFF_MODAL_TITLE {
+            get {
+                return ResourceManager.GetString("STAFF_MODAL_TITLE", resourceCulture);
             }
         }
         
@@ -623,6 +677,24 @@ namespace Frendy.CRM.Resources.Properties {
         internal static string USER_REGISTRATION_DATE {
             get {
                 return ResourceManager.GetString("USER_REGISTRATION_DATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Дата назначения.
+        /// </summary>
+        internal static string USER_ROLE_ASSIGN_DATE {
+            get {
+                return ResourceManager.GetString("USER_ROLE_ASSIGN_DATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Назначивший.
+        /// </summary>
+        internal static string USER_ROLE_ASSIGNER {
+            get {
+                return ResourceManager.GetString("USER_ROLE_ASSIGNER", resourceCulture);
             }
         }
         

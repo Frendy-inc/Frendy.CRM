@@ -16,7 +16,6 @@ builder.Services.AddLocalization(opt =>
 });
 builder.Services.AddSingleton<IStringLocalizer, StringLocalizer<Resources>>();
 builder.Services.AddServices();
-builder.Services.AddScoped<AppState>();
 
 var app = builder.Build();
 

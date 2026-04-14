@@ -1,0 +1,13 @@
+﻿@using Frendy.CRM.Components.Buttons
+@inherits CustomComponentBase
+
+<Section Style="max-width: 400px">
+    <span>@Text</span>
+</Section>
+<hr class="horizontal"/>
+<Section>
+    <Row>
+        <TextButton Color="var(--positive-primary-color)" Text="@LocalizationService.GetString("CONFIRM_MODAL_TRUE")" OnClick="@Confirm" />
+        <TextButton Text="@LocalizationService.GetString("CONFIRM_MODAL_FALSE")" OnClick="@Cancel" />
+    </Row>
+</Section>

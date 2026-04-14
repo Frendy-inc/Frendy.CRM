@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 
-namespace Frendy.CRM.Components.Layout;
+namespace Frendy.CRM.Components.Components;
 
 public partial class StartLoader : ComponentBase
 {

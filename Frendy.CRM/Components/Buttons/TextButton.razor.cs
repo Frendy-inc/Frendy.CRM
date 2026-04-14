@@ -20,5 +20,20 @@ public partial class TextButton: CustomComponentBase
     public string? Style { get; set; }
     
     [Parameter]
+    public string? Color { get; set; }
+    
+    [Parameter]
     public bool IsDisabled { get; set; }
+    
+    private string BuildStyle()
+    {
+        var style = Style ?? "";
+
+        if (!string.IsNullOrEmpty(Color))
+        {
+            style += $"; --btn-color: {Color};";
+        }
+
+        return style;
+    }
 }

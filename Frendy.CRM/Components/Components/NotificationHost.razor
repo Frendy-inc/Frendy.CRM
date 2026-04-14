@@ -1,0 +1,27 @@
+﻿@using Frendy.CRM.Shared.Enums
+@using Frendy.Shared.Extensions
+
+<div class="notify-stack">
+    @foreach (var notify in _notifications)
+    {
+        <div class="notify @(notify.Show ? "show" : "")">
+            <div class="notify-content">
+                <div class="notify-content-icon @notify.Type.GetEnumName().ToLower()">
+                    @switch (notify.Type)
+                    {
+                        case NotificationType.Positive:
+                            <Icon IconType="Icons.Done" Size="IconSize.M" Color="var(--positive-primary-color);" />
+                            break;
+                        case NotificationType.Negative:
+                            <Icon IconType="Icons.Close" Size="IconSize.M" Color="var(--negative-primary-color);" />
+                            break;
+                        case NotificationType.Neutral:
+                            <Icon IconType="Icons.Alert" Size="IconSize.M" Color="var(--neutral-primary-color);" />
+                            break;
+                    }
+                </div>
+                <span>@notify.Message</span>
+            </div>
+        </div>
+    }
+</div>

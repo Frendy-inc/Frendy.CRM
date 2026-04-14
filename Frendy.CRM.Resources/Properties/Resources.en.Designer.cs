@@ -249,6 +249,33 @@ namespace Frendy.CRM.Resources.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        internal static string CONFIRM_MODAL_FALSE {
+            get {
+                return ResourceManager.GetString("CONFIRM_MODAL_FALSE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirm the action.
+        /// </summary>
+        internal static string CONFIRM_MODAL_TITLE {
+            get {
+                return ResourceManager.GetString("CONFIRM_MODAL_TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Agree.
+        /// </summary>
+        internal static string CONFIRM_MODAL_TRUE {
+            get {
+                return ResourceManager.GetString("CONFIRM_MODAL_TRUE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Contact information.
         /// </summary>
         internal static string CONTACT_INFORMATION {
@@ -321,6 +348,15 @@ namespace Frendy.CRM.Resources.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The user has been successfully demoted!.
+        /// </summary>
+        internal static string NOTIFY_STAFF_DEMOTED {
+            get {
+                return ResourceManager.GetString("NOTIFY_STAFF_DEMOTED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Administrator.
         /// </summary>
         internal static string ROLE_ADMIN {
@@ -353,6 +389,24 @@ namespace Frendy.CRM.Resources.Properties {
         internal static string ROLE_USER {
             get {
                 return ResourceManager.GetString("ROLE_USER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you really want to demote an employee {0} {1} from the role {2}?.
+        /// </summary>
+        internal static string STAFF_CONFIRM_MODAL_MESSAGE {
+            get {
+                return ResourceManager.GetString("STAFF_CONFIRM_MODAL_MESSAGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Staff information.
+        /// </summary>
+        internal static string STAFF_MODAL_TITLE {
+            get {
+                return ResourceManager.GetString("STAFF_MODAL_TITLE", resourceCulture);
             }
         }
         
@@ -623,6 +677,24 @@ namespace Frendy.CRM.Resources.Properties {
         internal static string USER_REGISTRATION_DATE {
             get {
                 return ResourceManager.GetString("USER_REGISTRATION_DATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date of assign.
+        /// </summary>
+        internal static string USER_ROLE_ASSIGN_DATE {
+            get {
+                return ResourceManager.GetString("USER_ROLE_ASSIGN_DATE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Assigner.
+        /// </summary>
+        internal static string USER_ROLE_ASSIGNER {
+            get {
+                return ResourceManager.GetString("USER_ROLE_ASSIGNER", resourceCulture);
             }
         }
         

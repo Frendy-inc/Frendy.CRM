@@ -1,8 +1,8 @@
 ﻿@page "/"
 @using Frendy.CRM.Components.Components
-@inherits CustomComponentBase
+@inherits TableComponent<Frendy.Shared.Dto.RequestDto.AuditRequestDto.GetAuditsRequestDto, Frendy.CRM.Shared.Models.AuditShortDetails, Frendy.CRM.Shared.Models.AuditShortDetailsLookup>
 
-<div class="page-container">
+<PageContainer>
     <Table 
         HeadTitles="HeadTitles" 
         Body="Body" 
@@ -12,6 +12,6 @@
         OnPageChanged="OnPageChanged"
         OnPageSizeChanged="OnPageSizeChanged"
         OnSearchValueChanged="OnSearchValueChanged"
-        OnItemClick="ShowActionDetails">
+        OnItemClick="OpenDialog">
     </Table>
-</div>
+</PageContainer>

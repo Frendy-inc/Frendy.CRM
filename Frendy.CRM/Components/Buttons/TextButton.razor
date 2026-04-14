@@ -1,6 +1,8 @@
 ﻿@inherits CustomComponentBase
 
-<div class="text-button-container@(IsActive ? " active" : "") @(IsDisabled ? "disabled" : "")" style="@Style" @onclick="OnClick">
+<div class="text-button-container@(IsActive ? " active" : "") @(IsDisabled ? "disabled" : "")"
+     style="@BuildStyle()"
+     @onclick="OnClick">
     @if (!string.IsNullOrEmpty(Icon))
     {
         <div class="icon-mask" style="mask-image: url('@Icon'); -webkit-mask-image: url('@Icon');"></div>

@@ -1,8 +1,7 @@
-﻿using System.Diagnostics;
-using Frendy.CRM.Services.Interfaces;
-using Frendy.CRM.Shared;
+﻿using Frendy.CRM.Services.Interfaces;
 using Frendy.CRM.Shared.Models;
 using Frendy.Shared.Dto.RequestDto.AuditRequestDto;
+using Frendy.Shared.Dto.RequestDto.StaffRequestDto;
 using Frendy.Shared.Dto.RequestDto.UserRequestDto;
 using Frendy.Shared.Enums;
 using Frendy.Shared.Extensions;
@@ -13,7 +12,6 @@ namespace Frendy.CRM.Services.Services;
 public class DemoClient : IClient
 {
     private readonly IJsRuntimeService _jsRuntime;
-    private readonly AppState _appState;
     
     private readonly string[] _firstNames = ["Иван", "Пётр", "Сергей", "Олег", "Николай", "Алексей", "Дмитрий", "Евгений", "Кирилл", "Максим"];
     private readonly string[] _lastNames = ["Иванов", "Петров", "Сидоров", "Смирнов", "Кузнецов", "Попов", "Васильев", "Новиков", "Морозов", "Ершов"];
@@ -22,14 +20,14 @@ public class DemoClient : IClient
     private readonly string[] _deviceNames = ["DESKTOP-PC01", "LAPTOP-USER42", "WORKSTATION-03", "MOBILE-DEVICE", "SERVER-APP01"];
     private readonly string[] _domains = ["example.com", "company.ru", "mail.com", "test.org"];
     
-    public DemoClient(IJsRuntimeService jsRuntime, AppState appState)
+    public DemoClient(IJsRuntimeService jsRuntime)
     {
         _jsRuntime = jsRuntime;
-        _appState = appState;
     }
 
     private List<AuditShortDetailsLookup> AuditShortDetails { get; set; } = [];
     private List<UserShortDetailsLookup> UserShortDetails { get; set; } = [];
+    private List<StaffShortDetailsLookup> StaffShortDetails { get; set; } = [];
 
     public async Task<CurrentUserDetails> GetCurrentUserDetailsAsync()
     {
@@ -54,9 +52,8 @@ public class DemoClient : IClient
     }
 
     public async Task<AuditShortDetails> GetAuditsAsync(GetAuditsRequestDto requestDto)
-    {
-        _appState.ChangeLoadingState(true);
-
+    {            
+        await Task.Delay(1000);
         var details = new List<AuditShortDetailsLookup>();
         
         var actions = new[] { Action.PasswordChange, Action.BlockingTheUser, Action.Authorization, Action.Registration, Action.UnblockingTheUser, Action.ActionUpdate, Action.AddingNewAction, Action.GettingUserList };
@@ -110,17 +107,15 @@ public class DemoClient : IClient
             Details = details.Skip(requestDto.From).Take(requestDto.PageSize).ToList(),
             Page =  requestDto.From / requestDto.PageSize + 1,
             TotalCount = details.Count,
-            PageSize = 10
+            PageSize = 20
         };
-        
-        _appState.ChangeLoadingState(false);
+
         return audits;
     }
 
     public async Task<AuditDetails?> GetAuditDetailsAsync(Guid auditId)
-    {
-        _appState.ChangeLoadingState(true);
-        
+    {        
+        await Task.Delay(1000);
         var random = new Random();
     
         if (AuditShortDetails.Count == 0) return null;
@@ -138,8 +133,6 @@ public class DemoClient : IClient
         
         var action = AuditShortDetails.FirstOrDefault(x => x.Id == auditId);
         if (action is null) return null;
-        
-        _appState.ChangeLoadingState(false);
         
         return new AuditDetails
         {
@@ -169,8 +162,6 @@ public class DemoClient : IClient
 
     public async Task<UserShortDetails> GetUsersAsync(GetUsersRequestDto requestDto)
     {
-        _appState.ChangeLoadingState(true);
-
         var random = new Random();
         var details = new List<UserShortDetailsLookup>();
 
@@ -220,17 +211,14 @@ public class DemoClient : IClient
             Details = details.Skip(requestDto.From).Take(requestDto.PageSize).ToList(),
             Page =  requestDto.From / requestDto.PageSize + 1,
             TotalCount = details.Count,
-            PageSize = 10
+            PageSize = 20
         };
         
-        _appState.ChangeLoadingState(false);
         return audits;
     }
 
     public async Task<UserDetails?> GetUserDetailsAsync(Guid userId)
-    {
-        _appState.ChangeLoadingState(true);
-        
+    {        
         var random = new Random();
         var date = DateTime.Now;
         
@@ -239,7 +227,6 @@ public class DemoClient : IClient
         var user = UserShortDetails.FirstOrDefault(x => x.Id == userId);
         if (user is null) return null;
         
-        _appState.ChangeLoadingState(false);
 
         return new UserDetails
         {
@@ -261,6 +248,107 @@ public class DemoClient : IClient
             Username = GenerateUsername(user.FirstName, user.LastName),
             IpAddress = GenerateIpAddress()
         };
+    }
+
+    public async Task<StaffShortDetails> GetStaffsAsync(GetStaffsRequestDto requestDto)
+    {
+        var random = new Random();
+        var details = new List<StaffShortDetailsLookup>();
+        
+        var now = DateTime.Now;
+
+        if (StaffShortDetails.Count == 0)
+        {
+            for (var i = details.Count; i < 2500; i++)
+            {
+                var firstName = _firstNames[i % _firstNames.Length];
+                var lastName = _lastNames[i % _lastNames.Length];
+
+                details.Add(new StaffShortDetailsLookup
+                {
+                    Id = Guid.NewGuid(),
+                    FirstName = firstName,
+                    LastName = lastName,
+                    Role = _roles[i % _roles.Length],
+                    Email = GenerateEmail(firstName, lastName),
+                    PhoneNumber = GeneratePhoneNumber(),
+                    LastActivity = now.AddMinutes(-i),
+                    IsOnline = random.Next(2) == 0,
+                    AssignerFirstName = _firstNames[i % _firstNames.Length],
+                    AssignerLastName = _lastNames[i % _lastNames.Length],
+                    AssignerRole = _roles[i % _roles.Length],
+                    AssignDate = now.AddDays(random.Next(-30, -16))
+                });
+            }
+            
+            StaffShortDetails = details;
+        }
+        else
+        {
+            details = StaffShortDetails;
+        }
+        
+        if (!requestDto.Search.IsNullOrEmpty())
+        {
+            details = StaffShortDetails.Where(x => 
+                x.FirstName.Contains(requestDto.Search!) || 
+                x.LastName.Contains(requestDto.Search!) || 
+                x.PhoneNumber.Contains(requestDto.Search!) || 
+                x.Email.Contains(requestDto.Search!)).ToList();
+        }
+        
+        var audits = new StaffShortDetails
+        {
+            Details = details.Skip(requestDto.From).Take(requestDto.PageSize).ToList(),
+            Page =  requestDto.From / requestDto.PageSize + 1,
+            TotalCount = details.Count,
+            PageSize = 20
+        };
+        
+        return audits;
+    }
+
+    public async Task<StaffDetails?> GetStaffDetailsAsync(Guid staffId)
+    {        
+        var random = new Random();
+        
+        if (StaffShortDetails.Count == 0) return null;
+        
+        var staff = StaffShortDetails.FirstOrDefault(x => x.Id == staffId);
+        if (staff is null) return null;
+        
+
+        return new StaffDetails
+        {
+            Id = staff.Id,
+            FirstName = staff.FirstName,
+            LastName = staff.LastName,
+            Email = staff.Email,
+            PhoneNumber = staff.PhoneNumber,
+            LastActivity = staff.LastActivity,
+            IsBanned = random.Next(2) == 0,
+            IsOnline = staff.IsOnline,
+            Role = staff.Role,
+            Avatar = random.Next(2) == 0 ? "https://udoba.org/sites/default/files/h5p/content/253631/images/collageClip-69393d5b415b6.jpg" : null,
+            Username = GenerateUsername(staff.FirstName, staff.LastName),
+            DeviceName = _deviceNames[random.Next(_deviceNames.Length)],
+            AssignDate = staff.AssignDate,
+            AssignerFirstName = staff.AssignerFirstName,
+            AssignerLastName = staff.AssignerLastName,
+            AssignerRole = staff.AssignerRole,
+            AssignerEmail = GenerateEmail(staff.AssignerFirstName, staff.AssignerLastName),
+            AssignerUsername = GenerateUsername(staff.AssignerFirstName, staff.AssignerLastName),
+            AssignerPhoneNumber = GeneratePhoneNumber()
+        };
+    }
+
+    public async Task DemoteStaffAsync(Guid staffId)
+    
+    {
+        if (StaffShortDetails.Count == 0) return;
+        
+        var staff = StaffShortDetails.FirstOrDefault(x => x.Id == staffId);
+        if (staff is null) return;
     }
 
     private static string Transliterate(string text)

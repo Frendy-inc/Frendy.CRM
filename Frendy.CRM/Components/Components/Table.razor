@@ -125,7 +125,6 @@
         <div class="pagination">
             <TextButton
                 Text="@LocalizationService.GetString("TABLE_PAGINATION_PREV")"
-                Style="border-radius: 0.5rem;"
                 IsDisabled="@(CurrentPage == 1)"
                 OnClick="@(() => HandleClickAsync((CurrentPage - 2) * PageSize))"/>
 
@@ -173,14 +172,12 @@
                     <TextButton
                         IsActive="@(CurrentPage == indexCopy)"
                         Text="@indexCopy.ToString()"
-                        OnClick="@(() => HandleClickAsync((indexCopy - 1) * PageSize))"
-                        Style="border-radius: 0.5rem;"/>
+                        OnClick="@(() => HandleClickAsync((indexCopy - 1) * PageSize))" />
                 }
             }
 
             <TextButton
                 Text="@LocalizationService.GetString("TABLE_PAGINATION_NEXT")"
-                Style="border-radius: 0.5rem;"
                 IsDisabled="@(CurrentPage == PagesCount)"
                 OnClick="@(() => HandleClickAsync(CurrentPage * PageSize))"/>
         </div>

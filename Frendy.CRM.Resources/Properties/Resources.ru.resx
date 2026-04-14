@@ -222,4 +222,28 @@
     <data name="USER_USERNAME" xml:space="preserve">
         <value>Имя пользователя</value>
     </data>
+    <data name="USER_ROLE_ASSIGNER" xml:space="preserve">
+        <value>Назначивший</value>
+    </data>
+    <data name="USER_ROLE_ASSIGN_DATE" xml:space="preserve">
+        <value>Дата назначения</value>
+    </data>
+    <data name="STAFF_MODAL_TITLE" xml:space="preserve">
+        <value>Информация о сотруднике</value>
+    </data>
+    <data name="CONFIRM_MODAL_TRUE" xml:space="preserve">
+        <value>Подтвердить</value>
+    </data>
+    <data name="CONFIRM_MODAL_FALSE" xml:space="preserve">
+        <value>Отменить</value>
+    </data>
+    <data name="CONFIRM_MODAL_TITLE" xml:space="preserve">
+        <value>Подтвердите действие</value>
+    </data>
+    <data name="STAFF_CONFIRM_MODAL_MESSAGE" xml:space="preserve">
+        <value>Вы действительно хотите разжаловать сотрудника {0} {1} с роли {2}?</value>
+    </data>
+    <data name="NOTIFY_STAFF_DEMOTED" xml:space="preserve">
+        <value>Пользователь успешно разжалован!</value>
+    </data>
 </root>

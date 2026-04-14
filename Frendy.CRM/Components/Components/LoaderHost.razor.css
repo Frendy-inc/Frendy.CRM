@@ -6,7 +6,7 @@
     background-color: var(--block-color);
     width: -webkit-fill-available;
     height: -webkit-fill-available;
-    z-index: 9999;
+    z-index: 9998;
     backdrop-filter: blur(2rem);
     opacity: 50;
     background-size: cover;

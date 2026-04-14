@@ -1,120 +1,104 @@
-﻿using Frendy.CRM.Shared;
+﻿using Frendy.CRM.Components.Components;
+using Frendy.CRM.Components.Layout;
+using Frendy.CRM.Services.Services;
 using Frendy.CRM.Shared.Enums;
 using Frendy.CRM.Shared.Extensions;
+using Frendy.CRM.Shared.Models;
 using Frendy.Shared.Dto.RequestDto.AuditRequestDto;
 using Frendy.Shared.Extensions;
+using Microsoft.AspNetCore.Components;
 
 namespace Frendy.CRM.Components.Pages;
 
-public partial class AuditPage: CustomComponentBase
+public partial class AuditPage: TableComponent<GetAuditsRequestDto, AuditShortDetails, AuditShortDetailsLookup>
 {
-    public readonly List<string> HeadTitles = [];
-    
-    public List<Dictionary<string[], TableItemType>> Body { get; } = [];
-    
-    public int TotalCount { get; set; }
-
-    public int PageSize = 20;
-    
-    public int CurrentPage { get; set; }
-
     protected override async Task OnInitializedAsync()
     {
-        await GetAuditAsync(new GetAuditsRequestDto
-        {
-            PageSize = PageSize,
-            From = 0,
-        });
-        
         HeadTitles.Add(LocalizationService.GetString("TABLE_ID_TITLE"));
         HeadTitles.Add(LocalizationService.GetString("TABLE_NAME_TITLE"));
         HeadTitles.Add(LocalizationService.GetString("TABLE_TARGET_TITLE"));
         HeadTitles.Add(LocalizationService.GetString("TABLE_ACTION_TIME_TITLE"));
         HeadTitles.Add(LocalizationService.GetString("TABLE_ACTION_TITLE"));
         
-        await base.OnInitializedAsync();
-    }
-
-    public async Task OnPageChanged(int from)
-    {
-        await GetAuditAsync(new GetAuditsRequestDto
+        await LoaderService.RunAsync(async () => await LoadAsync(new GetAuditsRequestDto
         {
             PageSize = PageSize,
-            From = from
-        });
-        StateHasChanged();
+            From = 0 
+        }));
     }
-    
-    public async Task OnPageSizeChanged(int size)
+
+    protected override async Task<AuditShortDetails> FetchDataAsync(GetAuditsRequestDto request) =>
+        await Client.GetAuditsAsync(request);
+
+    protected override Dictionary<string[], TableItemType> MapItem(AuditShortDetailsLookup item)
     {
-        await GetAuditAsync(new GetAuditsRequestDto
+        return new Dictionary<string[], TableItemType>
         {
-            PageSize = size,
-            From = 0
-        });
-        StateHasChanged();
+            { [item.Id.ToString()], TableItemType.Text },
+            {
+                [
+                    $"{item.ExecutorLastName} {item.ExecutorFirstName[0]}",
+                    item.ExecutorRole.GetLocalization(LocalizationService)
+                ], TableItemType.WithSubText
+            },
+            {
+                [
+                    $"{item.TargetLastName} {item.TargetFirstName[0]}",
+                    item.TargetRole.GetLocalization(LocalizationService)
+                ], TableItemType.WithSubText
+            },
+            { [$"{item.ActionDate.GetStringDate(withTime: true)}"], TableItemType.Text },
+            {
+                [
+                    $"{item.Action.GetLocalization(LocalizationService)}",
+                    item.Action.GetStyleClass()
+                ], TableItemType.Status
+            },
+        };
     }
-    
-    public async Task OnSearchValueChanged(string value)
+
+    protected override async Task OnPageChanged(int from)
     {
-        await GetAuditAsync(new GetAuditsRequestDto
+        await LoaderService.RunAsync(async () => await LoadAsync(new GetAuditsRequestDto
+        {
+            PageSize = PageSize, 
+            From = from 
+        }));
+        
+        await InvokeAsync(StateHasChanged);
+    }
+
+    protected override async Task OnPageSizeChanged(int size)
+    {
+        await LoaderService.RunAsync(async () => await LoadAsync(new GetAuditsRequestDto
+        {
+            PageSize = size, 
+            From = 0
+        })); 
+        
+        await InvokeAsync(StateHasChanged);
+    }
+
+    protected override async Task OnSearchValueChanged(string value)
+    {
+        await LoaderService.RunAsync(async () => await LoadAsync(new GetAuditsRequestDto
         {
             Search = value,
             PageSize = PageSize,
-            From = 0
-        });
-        StateHasChanged();
-    }
-    
-    private async Task GetAuditAsync(GetAuditsRequestDto requestDto)
-    {
-        var audits = await Client.GetAuditsAsync(requestDto);
-
-        TotalCount = audits.TotalCount;
-        CurrentPage = audits.Page;
-
-        Body.Clear();
-        foreach (var auditDetail in audits.Details)
-        {
-            Body.Add(new Dictionary<string[], TableItemType>
-            {
-                {
-                    [auditDetail.Id.ToString()],
-                    TableItemType.Text
-                },
-                {
-                    [
-                        $"{auditDetail.ExecutorLastName} {auditDetail.ExecutorFirstName[0]}",
-                        auditDetail.ExecutorRole.GetLocalization(LocalizationService)
-                    ],
-                    TableItemType.WithSubText
-                },
-                {
-                    [
-                        $"{auditDetail.TargetLastName} {auditDetail.TargetFirstName[0]}",
-                        auditDetail.TargetRole.GetLocalization(LocalizationService)
-                    ],
-                    TableItemType.WithSubText
-                },
-                {
-                    [$"{auditDetail.ActionDate.GetStringDate(withTime: true)}"],
-                    TableItemType.Text
-                },
-                {
-                    [
-                        $"{auditDetail.Action.GetLocalization(LocalizationService)}",
-                        auditDetail.Action.GetStyleClass()
-                    ],
-                    TableItemType.Status
-                },
-            });
-        }
+            From = 0 
+        })); 
         
-        StateHasChanged();
+        await InvokeAsync(StateHasChanged);
     }
 
-    private void ShowActionDetails(Guid actionId)
+    protected override async Task OpenDialog(Guid guid)
     {
-        AppState.CallAuditDetails(actionId);
+        var data = await LoaderService.RunAsync(async () => await Client.GetAuditDetailsAsync(guid));
+        
+        await ModalService.OpenAsync<AuditModal, bool>(new Dictionary<string, object>
+        {
+            ["Model"] = data,
+            ["Title"] = LocalizationService.GetString("AUDIT_MODAL_TITLE")
+        });
     }
 }

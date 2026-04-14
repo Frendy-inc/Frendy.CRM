@@ -1,0 +1,92 @@
+﻿@using Frendy.CRM.Shared.Enums
+@using Frendy.CRM.Shared.Extensions
+@using Frendy.Shared.Extensions
+@inherits CustomComponentBase
+
+<CopyField Label="@LocalizationService.GetString("AUDIT_MODAL_ID")" Value="@Model.Id.ToString()" />
+<Section>
+    <IconLabelTitle Icon="Icons.Profile" Size="IconSize.M" Text="@LocalizationService.GetString("AUDIT_MODAL_EXECUTOR")"/>
+    <Row>
+        <Column>
+            <IconLabelValue Icon="Icons.Profile" Size="IconSize.S" Color="var(--unfocus-color)"
+                            Label="@LocalizationService.GetString("USER_NAME_TITLE")"
+                            Value="@($"{Model.ExecutorLastName} {Model.ExecutorFirstName}")"/>
+            <IconLabelValue Icon="Icons.Profile" Size="IconSize.S" Color="var(--unfocus-color)"
+                            Label="@LocalizationService.GetString("USER_ROLE_TITLE")"
+                            Value="@(Model.ExecutorRole.GetLocalization(LocalizationService))"/>
+            <IconLabelValue Icon="Icons.Profile" Size="IconSize.S" Color="var(--unfocus-color)"
+                            Label="@LocalizationService.GetString("USER_USERNAME")"
+                            Value="@(Model.ExecutorUsername)"
+                            ValueClass="status purple bg"/>
+            <IconLabelValue Icon="Icons.Email" Size="IconSize.S" Color="var(--unfocus-color)"
+                            Label="@LocalizationService.GetString("USER_EMAIL_TITLE")"
+                            Value="@(Model.ExecutorEmail ?? LocalizationService.GetString("TABLE_NO_SPECIFIED"))"/>
+            <IconLabelValue Icon="Icons.Phone" Size="IconSize.S" Color="var(--unfocus-color)"
+                            Label="@LocalizationService.GetString("USER_PHONE_NUMBER_TITLE")"
+                            Value="@(!Model.ExecutorPhoneNumber.IsNullOrEmpty()
+                                       ? Model.ExecutorPhoneNumber!.FormatPhone()
+                                       : LocalizationService.GetString("TABLE_NO_SPECIFIED"))"/>
+        </Column>
+        <hr class="vertical"/>
+        <Column>
+            <IconLabelValue Icon="Icons.Computer" Size="IconSize.S" Color="var(--unfocus-color)"
+                            Label="@LocalizationService.GetString("USER_DEVICE")"
+                            Value="@Model.ExecutorDeviceName"/>
+            <IconLabelValue Icon="Icons.Map" Size="IconSize.S" Color="var(--unfocus-color)"
+                            Label="@LocalizationService.GetString("USER_CITY")"
+                            Value="@Model.ExecutorCity"/>
+            <IconLabelValue Icon="Icons.Network" Size="IconSize.S" Color="var(--unfocus-color)"
+                            Label="IP"
+                            Value="@Model.ExecutorIpAddress"/>
+        </Column>
+    </Row>
+</Section>
+<hr class="horizontal"/>
+<Section>
+    <IconLabelTitle Icon="Icons.Profile" Size="IconSize.M" Text="@LocalizationService.GetString("AUDIT_MODAL_TARGET")"/>
+    <Row>
+        <Column>
+            <IconLabelValue Icon="Icons.Profile" Size="IconSize.S" Color="var(--unfocus-color)"
+                            Label="@LocalizationService.GetString("USER_NAME_TITLE")"
+                            Value="@($"{Model.TargetLastName} {Model.TargetFirstName}")"/>
+            <IconLabelValue Icon="Icons.Profile" Size="IconSize.S" Color="var(--unfocus-color)"
+                            Label="@LocalizationService.GetString("USER_ROLE_TITLE")"
+                            Value="@(Model.TargetRole.GetLocalization(LocalizationService))"/>
+            <IconLabelValue Icon="Icons.Profile" Size="IconSize.S" Color="var(--unfocus-color)"
+                            Label="@LocalizationService.GetString("USER_USERNAME")"
+                            Value="@(Model.TargetUsername)"
+                            ValueClass="status purple bg"/>
+        </Column>
+        <hr class="vertical"/>
+        <Column>
+            <IconLabelValue Icon="Icons.Email" Size="IconSize.S" Color="var(--unfocus-color)"
+                            Label="@LocalizationService.GetString("USER_EMAIL_TITLE")"
+                            Value="@(Model.TargetEmail ?? LocalizationService.GetString("TABLE_NO_SPECIFIED"))"/>
+            <IconLabelValue Icon="Icons.Phone" Size="IconSize.S" Color="var(--unfocus-color)"
+                            Label="@LocalizationService.GetString("USER_PHONE_NUMBER_TITLE")"
+                            Value="@(!Model.TargetPhoneNumber.IsNullOrEmpty()
+                                       ? Model.TargetPhoneNumber!.FormatPhone()
+                                       : LocalizationService.GetString("TABLE_NO_SPECIFIED"))"/>
+        </Column>
+    </Row>
+</Section>
+<hr class="horizontal"/>
+<Section>
+    <IconLabelTitle Icon="Icons.Tag" Size="IconSize.M" IconColor="@($"var(--{Model.Action.GetStyleClass()}-primary-color)")"
+                    IconClass="@(Model.Action.GetStyleClass())"
+                    Text="@LocalizationService.GetString("AUDIT_MODAL_ACTION_INFO")"/>
+    <Row>
+        <Column>
+            <IconLabelValue Icon="Icons.Tag" Size="IconSize.S" Color="var(--unfocus-color)"
+                            Label="@LocalizationService.GetString("TABLE_ACTION_TITLE")"
+                            Value="@(Model.Action.GetLocalization(LocalizationService))"
+                            ValueClass="@Model.Action.GetStyleClass()"/>
+            <IconLabelValue Icon="Icons.Text" Size="IconSize.S" Color="var(--unfocus-color)"
+                            Label="@LocalizationService.GetString("ACTION_DESCRIPTION")"
+                            Value="@(Model.ActionDescription ?? LocalizationService.GetString("TABLE_NO_SPECIFIED"))"/>
+            <IconLabelValue Icon="Icons.Clock" Size="IconSize.S" Color="var(--unfocus-color)"
+                            Label="@LocalizationService.GetString("AUDIT_MODAL_ACTION_DATE")"
+                            Value="@(Model.ActionDate.GetStringDate(withTime: true))"/>
+        </Column>
+    </Row>
+</Section>
